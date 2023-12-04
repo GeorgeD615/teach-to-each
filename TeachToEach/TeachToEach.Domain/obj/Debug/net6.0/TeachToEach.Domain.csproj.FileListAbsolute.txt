@@ -1,0 +1,11 @@
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\bin\Debug\net6.0\TeachToEach.Domain.deps.json
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\bin\Debug\net6.0\TeachToEach.Domain.dll
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\bin\Debug\net6.0\TeachToEach.Domain.pdb
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.AssemblyInfoInputs.cache
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.AssemblyInfo.cs
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.csproj.CoreCompileInputs.cache
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.dll
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\refint\TeachToEach.Domain.dll
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.pdb
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\ref\TeachToEach.Domain.dll

@@ -1,0 +1,12 @@
+﻿@using TeachToEach.Domain.Entity;
+@model IEnumerable<User>
+@{
+    ViewData["Title"] = "GetUsers";
+}
+
+<h1>GetUsers</h1>
+
+@foreach(User u in Model)
+{
+    <p>@u.first_name @u.last_name, @u.age лет, email: @u.email </p>
+}

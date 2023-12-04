@@ -1,0 +1,17 @@
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\bin\Debug\net6.0\TeachToEach.DAL.deps.json
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\bin\Debug\net6.0\TeachToEach.DAL.runtimeconfig.json
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\bin\Debug\net6.0\TeachToEach.DAL.dll
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\bin\Debug\net6.0\TeachToEach.DAL.pdb
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\bin\Debug\net6.0\TeachToEach.Domain.dll
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\bin\Debug\net6.0\TeachToEach.Domain.pdb
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\obj\Debug\net6.0\TeachToEach.DAL.csproj.AssemblyReference.cache
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\obj\Debug\net6.0\TeachToEach.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\obj\Debug\net6.0\TeachToEach.DAL.AssemblyInfoInputs.cache
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\obj\Debug\net6.0\TeachToEach.DAL.AssemblyInfo.cs
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\obj\Debug\net6.0\TeachToEach.DAL.csproj.CoreCompileInputs.cache
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\obj\Debug\net6.0\TeachToEach.DAL.csproj.CopyComplete
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\obj\Debug\net6.0\TeachToEach.DAL.dll
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\obj\Debug\net6.0\refint\TeachToEach.DAL.dll
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\obj\Debug\net6.0\TeachToEach.DAL.pdb
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\obj\Debug\net6.0\TeachToEach.DAL.genruntimeconfig.cache
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.DAL\obj\Debug\net6.0\ref\TeachToEach.DAL.dll
