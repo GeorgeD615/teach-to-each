@@ -1,18 +1,111 @@
 html {
   font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
   position: relative;
   min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
+  background: white;
+}
+
+html {
+    background: rgb(215,213,252);
+    background: linear-gradient(90deg, rgba(215,213,252,1) 0%, rgba(170,220,247,1) 52%, rgba(102,178,235,1) 100%);
+    font-size: 20px;
+    font-family: 'Sofia Sans Semi Condensed', sans-serif;
+}
+
+header, footer, div#separator {
+    background: rgb(215,213,252);
+    background: linear-gradient(90deg, rgba(215,213,252,1) 0%, rgba(170,220,247,1) 52%, rgba(102,178,235,1) 100%);
+}
+
+header {
+    padding: 10px 30px 20px;
+}
+
+div#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#body {
+    width: 100%;
+    background: rgb(215,213,252);
+    background: linear-gradient(90deg, rgba(215,213,252,1) 0%, rgba(170,220,247,1) 52%, rgba(102,178,235,1) 100%);
+}
+
+div#description {
+    padding-top: 20px;
+}
+div#desc-teach, div#desc-stud, div#greeting, div#entry-button-st, div#entry-button-tc{
+    background: white;
+}
+
+img#logotip {
+    width: 200px;
+    height: 200px;
+    border-radius:50%
+}
+
+h1 {
+    font-size: 100px;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+    color: #00539f;
+    text-shadow: 3px 3px 1px white;
+}
+
+h2 {
+    text-align: center;
+}
+
+div#separator {
+    height: 40px;
+}
+
+main{
+    width:100%;
+}
+
+img {
+    width: 90px;
+    height: 90px;
+}
+
+.btn-itd {
+    display: block;
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 8px 30px;
+    color: white;
+    background-color: rgba(102,178,235,1);
+}
+
+.btn-itd:hover {
+    color: white;
+    background-color: #00539f;
+}
+
+
+.button {
+    background-color: #5b82de;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+aside#buttons {
+    text-align: center;
+}
+
+footer {
+    font-size: 16px;
 }
