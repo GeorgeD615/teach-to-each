@@ -12,7 +12,7 @@ namespace TeachToEach.Domain.Enum
         UserNotFound = 0,
         UserNotCreated = 1,
         UserNotRemoved = 2,
-
+        UserNotUpdated = 3,
 
         OK = 200,
         InternalServerError = 500

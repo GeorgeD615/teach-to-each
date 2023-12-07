@@ -51,14 +51,13 @@ namespace TeachToEach.Service.Implementations
             }
             return response;
         }
-
         public async Task<IBaseResponse<bool>> DeleteUser(int id)
         {
             var response = new BaseResponse<bool>();
             try
             {
-                var userRequest = await GetUser(id);
-                if(userRequest.Data == null)
+                var userRequest = await userRepository.Get(id);
+                if(userRequest == null)
                 {
                     response.StatusCode = Domain.Enum.StatusCode.UserNotFound;
                     response.Description = "Пользователь не найден";
@@ -66,7 +65,7 @@ namespace TeachToEach.Service.Implementations
                     return response;
                 }
 
-                bool operationResult = await userRepository.Delete(userRequest.Data);
+                bool operationResult = await userRepository.Delete(userRequest);
                 if (operationResult)
                 {
                     response.StatusCode = Domain.Enum.StatusCode.OK;
@@ -88,10 +87,51 @@ namespace TeachToEach.Service.Implementations
             }
             return response;
         }
-
-        public async Task<IBaseResponse<User>> GetUser(int id)
+        public async Task<IBaseResponse<bool>> EditUser(int id, UserViewModel userViewModel)
         {
-            var response = new BaseResponse<User>();
+            var response = new BaseResponse<bool>();
+            try
+            {
+                var userRequest = await userRepository.Get(id);
+                if(userRequest == null)
+                {
+                    response.StatusCode = Domain.Enum.StatusCode.UserNotFound;
+                    response.Description = "Пользователь не найден";
+                    response.Data = false;
+                    return response;
+                }
+
+                userRequest.first_name = userViewModel.first_name;
+                userRequest.last_name = userViewModel.last_name;
+                userRequest.email = userViewModel.email;    
+                userRequest.age = userViewModel.age;
+
+                bool operationResult = await userRepository.Edit(userRequest);
+                if (operationResult)
+                {
+                    response.Description = "Данные успешно обновлены";
+                    response.StatusCode = Domain.Enum.StatusCode.OK;
+                }
+                else
+                {
+                    response.Description = "Ошибка: Данные не обновлены";
+                    response.StatusCode = Domain.Enum.StatusCode.UserNotUpdated;
+                }
+                response.Data = operationResult;
+
+
+            }
+            catch(Exception ex)
+            {
+                response.Description = $"[EditUser] : {ex.Message}";
+                response.StatusCode = Domain.Enum.StatusCode.InternalServerError;
+                response.Data = false;
+            }
+            return response;
+        }
+        public async Task<IBaseResponse<UserViewModel>> GetUser(int id)
+        {
+            var response = new BaseResponse<UserViewModel>();
             try
             {
                 var user = await userRepository.Get(id);
@@ -104,7 +144,13 @@ namespace TeachToEach.Service.Implementations
                 {
                     response.StatusCode = Domain.Enum.StatusCode.OK;
                     response.Description = "Пользователь найден";
-                    response.Data = user;
+                    response.Data = new UserViewModel()
+                    {
+                        first_name = user.first_name,
+                        last_name = user.last_name,
+                        age = user.age,
+                        email = user.email
+                    };
                 }
                 
             }
@@ -115,10 +161,9 @@ namespace TeachToEach.Service.Implementations
             }
             return response;
         }
-
-        public async Task<IBaseResponse<User>> GetUserByFirstName(string first_name)
+        public async Task<IBaseResponse<UserViewModel>> GetUserByFirstName(string first_name)
         {
-            var response = new BaseResponse<User>();
+            var response = new BaseResponse<UserViewModel>();
             try
             {
                 var user = await userRepository.GetByFirstName(first_name);
@@ -131,7 +176,12 @@ namespace TeachToEach.Service.Implementations
                 {
                     response.StatusCode = Domain.Enum.StatusCode.OK;
                     response.Description = "Пользователь найден";
-                    response.Data = user;
+                    response.Data = new UserViewModel() {
+                        first_name = user.first_name,
+                        last_name = user.last_name,
+                        age = user.age,
+                        email = user.email
+                    };
                 }
 
             }
@@ -142,17 +192,21 @@ namespace TeachToEach.Service.Implementations
             }
             return response;
         }
-
-        public async Task<IBaseResponse<IEnumerable<User>>> GetUsers()
+        public async Task<IBaseResponse<IEnumerable<UserViewModel>>> GetUsers()
         {
-            var responce = new BaseResponse<IEnumerable<User>>();
+            var responce = new BaseResponse<IEnumerable<UserViewModel>>();
             try
             {
                 var users = await userRepository.Select();
-
                 responce.Description = $"Найдено {users.Count()} элементов";
                 responce.StatusCode = Domain.Enum.StatusCode.OK;
-                responce.Data = users;
+                responce.Data = users.Select(u => new UserViewModel()
+                {
+                    first_name = u.first_name,
+                    last_name = u.last_name,
+                    age = u.age,
+                    email = u.email
+                });
 
                 return responce;
 

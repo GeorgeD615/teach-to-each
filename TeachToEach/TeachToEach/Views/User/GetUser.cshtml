@@ -1,0 +1,12 @@
+﻿@using TeachToEach.Domain.Response;
+@using TeachToEach.Domain.ViewModels.User
+@using TeachToEach.Domain.Entity
+@model BaseResponse<UserViewModel>
+@{
+    ViewData["Title"] = "GetUser";
+}
+
+<h1>GetUser</h1>
+<p>Status Code: @Model.StatusCode </p>
+<p>Description: @Model.Description </p>
+<p>@Model.Data.first_name @Model.Data.last_name @Model.Data.age лет, @Model.Data.email</p>

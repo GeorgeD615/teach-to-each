@@ -1,6 +1,7 @@
-﻿@using TeachToEach.Domain.Response
+﻿@using TeachToEach.Domain.Response;
+@using TeachToEach.Domain.ViewModels.User
 @using TeachToEach.Domain.Entity
-@model BaseResponse<IEnumerable<User>>
+@model BaseResponse<IEnumerable<UserViewModel>>
 @{
     ViewData["Title"] = "GetUsers";
 }
@@ -8,7 +9,11 @@
 <h1>GetUsers</h1>
 <p>Status Code: @Model.StatusCode </p>
 <p>Description: @Model.Description </p>
-@foreach(User u in Model.Data)
+@if (Model.Data != null)
 {
-    <p>@u.first_name @u.last_name, @u.age лет, email: @u.email </p>
+    @foreach (UserViewModel u in Model.Data)
+    {
+        <p>@u.first_name @u.last_name, @u.age лет, email: @u.email </p>
+    }
 }
+

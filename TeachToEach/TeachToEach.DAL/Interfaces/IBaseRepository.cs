@@ -13,5 +13,7 @@ namespace TeachToEach.DAL.Interfaces
         Task<T> Get(int id);
         public Task<IEnumerable<T>> Select();
         Task<bool> Delete(T entity);
+
+        Task<bool> Edit(T entity);
     }
 }

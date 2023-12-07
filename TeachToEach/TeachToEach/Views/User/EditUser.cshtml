@@ -1,0 +1,18 @@
+﻿@model UpdateUserViewModel
+@{
+    ViewData["Title"] = "EditUser";
+}
+
+<h1>EditUser</h1>
+
+<div>
+    <form asp-action="EditUser" asp-controller="User" method="post">
+        <input type="number" asp-for="id" class="form-control" />
+        <input type="text" asp-for="userViewModel.first_name" class="form-control" />
+        <input type="text" asp-for="userViewModel.last_name" class="form-control" />
+        <input type="email" asp-for="userViewModel.email" class="form-control" />
+        <input type="number" asp-for="userViewModel.age" class="form-control" />
+        <button class="btn btn-primary float-right" type="submit">Отправить</button>
+    </form>
+</div>
+

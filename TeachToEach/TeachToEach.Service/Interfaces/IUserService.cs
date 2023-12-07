@@ -11,15 +11,17 @@ namespace TeachToEach.Service.Interfaces
 {
     public interface IUserService
     {
-        Task<IBaseResponse<IEnumerable<User>>> GetUsers();
+        Task<IBaseResponse<IEnumerable<UserViewModel>>> GetUsers();
 
-        Task<IBaseResponse<User>> GetUser(int id);
+        Task<IBaseResponse<UserViewModel>> GetUser(int id);
 
-        Task<IBaseResponse<User>> GetUserByFirstName(string first_name);
+        Task<IBaseResponse<UserViewModel>> GetUserByFirstName(string first_name);
 
         Task<IBaseResponse<bool>> CreateUser(UserViewModel newUser);
 
         Task<IBaseResponse<bool>> DeleteUser(int id);
+
+        Task<IBaseResponse<bool>> EditUser(int id, UserViewModel userViewModel);
 
     }
 }

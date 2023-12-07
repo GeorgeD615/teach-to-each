@@ -32,6 +32,13 @@ namespace TeachToEach.DAL.Repositories
             return true;
         }
 
+        public async Task<bool> Edit(User entity)
+        {
+            _db.Users.Update(entity);
+            await _db.SaveChangesAsync();
+            return true;
+        }
+
         public async Task<User> Get(int id)
         {
             return await _db.Users.FirstOrDefaultAsync(u => u.id == id);
