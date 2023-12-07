@@ -1,5 +1,4 @@
 html {
-  font-size: 14px;
   position: relative;
   min-height: 100%;
 }
@@ -12,7 +11,6 @@ body {
 html {
     background: rgb(215,213,252);
     background: linear-gradient(90deg, rgba(215,213,252,1) 0%, rgba(170,220,247,1) 52%, rgba(102,178,235,1) 100%);
-    font-size: 20px;
     font-family: 'Sofia Sans Semi Condensed', sans-serif;
 }
 
@@ -25,7 +23,7 @@ header {
     padding: 10px 30px 20px;
 }
 
-div#logo {
+div#logo, div#logo-t {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,8 +38,15 @@ div#body {
 div#description {
     padding-top: 20px;
 }
-div#desc-teach, div#desc-stud, div#greeting, div#entry-button-st, div#entry-button-tc{
+div#desc-teach, div#desc-stud, div#greeting,
+div#entry-button-st, div#entry-button-tc,
+div#personal-data-teach, p#personal-photo-teach {
     background: white;
+}
+
+p#personal-photo-teach{
+    margin: 10px;
+    width:100%;
 }
 
 img#logotip {
@@ -61,6 +66,7 @@ h1 {
 
 h2 {
     text-align: center;
+    font-size: 20px;
 }
 
 div#separator {
@@ -104,6 +110,29 @@ img {
 
 aside#buttons {
     text-align: center;
+}
+
+
+.sidenav {
+    height:100%;
+    width:100%;
+    z-index: 1; 
+    top: 200px;
+    background-color: #5b82de;
+    overflow-x: hidden;
+    padding-top: 5px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 8px;
+    font-size: 20px;
+    color: #fdfcfc;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+    background-color: #1c0d7a;
 }
 
 footer {

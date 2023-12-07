@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "roW+1yzvdAS+w5VES7xyT2kMUeG8Hm/iUflcpx5hm3M=",
+  "Hash": "O7Gx558bv9Ul9dVt8pXeFs66uO745/ycFqDrGljyBNE=",
   "Source": "TeachToEach",
   "BasePath": "_content/TeachToEach",
   "Mode": "Default",
@@ -1086,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\polin\\OneDrive\\Documents\\GitHub\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\main-logo.png",
+      "SourceId": "TeachToEach",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\polin\\OneDrive\\Documents\\GitHub\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\",
+      "BasePath": "_content/TeachToEach",
+      "RelativePath": "main-logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\main-logo.png"
     }
   ]
 }
