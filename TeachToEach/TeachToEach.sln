@@ -3,15 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachToEach", "TeachToEach\TeachToEach.csproj", "{8B3EB9F9-7E2F-4BB1-ABC7-F1CE0FC75158}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeachToEach", "TeachToEach\TeachToEach.csproj", "{8B3EB9F9-7E2F-4BB1-ABC7-F1CE0FC75158}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{29967472-D875-4F75-84AB-8639591FF686}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachToEach.Domain", "TeachToEach.Domain\TeachToEach.Domain.csproj", "{41BC7554-1EF0-46BD-BCE6-BF25698853BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeachToEach.Domain", "TeachToEach.Domain\TeachToEach.Domain.csproj", "{41BC7554-1EF0-46BD-BCE6-BF25698853BE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{43E32650-674A-4C0F-92D3-A5CDC784A1A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachToEach.DAL", "TeachToEach.DAL\TeachToEach.DAL.csproj", "{6FC0F83A-33F5-4372-B521-697DBEB1AFAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeachToEach.DAL", "TeachToEach.DAL\TeachToEach.DAL.csproj", "{6FC0F83A-33F5-4372-B521-697DBEB1AFAB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{FDE87E6A-8FA7-49C1-800B-20C2E79A902E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachToEach.Service", "TeachToEach.Service\TeachToEach.Service.csproj", "{788213AC-5C5B-459B-8BAB-CAD0C2066898}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,10 @@ Global
 		{6FC0F83A-33F5-4372-B521-697DBEB1AFAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FC0F83A-33F5-4372-B521-697DBEB1AFAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FC0F83A-33F5-4372-B521-697DBEB1AFAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{788213AC-5C5B-459B-8BAB-CAD0C2066898}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{788213AC-5C5B-459B-8BAB-CAD0C2066898}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{788213AC-5C5B-459B-8BAB-CAD0C2066898}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{788213AC-5C5B-459B-8BAB-CAD0C2066898}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +46,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{41BC7554-1EF0-46BD-BCE6-BF25698853BE} = {29967472-D875-4F75-84AB-8639591FF686}
 		{6FC0F83A-33F5-4372-B521-697DBEB1AFAB} = {43E32650-674A-4C0F-92D3-A5CDC784A1A0}
+		{788213AC-5C5B-459B-8BAB-CAD0C2066898} = {FDE87E6A-8FA7-49C1-800B-20C2E79A902E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {51A08976-CE04-4BF0-BB31-CED76B3DC480}

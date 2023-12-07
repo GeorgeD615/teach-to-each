@@ -236,3 +236,5 @@ C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach\bin\Debug\net6.
 C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach\bin\Debug\net6.0\TeachToEach.Service.dll
+C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach\bin\Debug\net6.0\TeachToEach.Service.pdb

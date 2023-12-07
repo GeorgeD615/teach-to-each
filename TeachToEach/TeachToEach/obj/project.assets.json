@@ -3533,6 +3533,20 @@
         "runtime": {
           "bin/placeholder/TeachToEach.Domain.dll": {}
         }
+      },
+      "TeachToEach.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "TeachToEach.DAL": "1.0.0",
+          "TeachToEach.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TeachToEach.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TeachToEach.Service.dll": {}
+        }
       }
     }
   },
@@ -10102,6 +10116,11 @@
       "type": "project",
       "path": "../TeachToEach.Domain/TeachToEach.Domain.csproj",
       "msbuildProject": "../TeachToEach.Domain/TeachToEach.Domain.csproj"
+    },
+    "TeachToEach.Service/1.0.0": {
+      "type": "project",
+      "path": "../TeachToEach.Service/TeachToEach.Service.csproj",
+      "msbuildProject": "../TeachToEach.Service/TeachToEach.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -10109,7 +10128,8 @@
       "Microsoft.EntityFrameworkCore.Design >= 6.0.22",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.16",
       "TeachToEach.DAL >= 1.0.0",
-      "TeachToEach.Domain >= 1.0.0"
+      "TeachToEach.Domain >= 1.0.0",
+      "TeachToEach.Service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -10150,6 +10170,9 @@
             },
             "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach.Domain\\TeachToEach.Domain.csproj": {
               "projectPath": "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach.Domain\\TeachToEach.Domain.csproj"
+            },
+            "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach.Service\\TeachToEach.Service.csproj": {
+              "projectPath": "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach.Service\\TeachToEach.Service.csproj"
             }
           }
         }

@@ -1,12 +1,14 @@
-﻿@using TeachToEach.Domain.Entity;
-@model IEnumerable<User>
+﻿@using TeachToEach.Domain.Response
+@using TeachToEach.Domain.Entity
+@model BaseResponse<IEnumerable<User>>
 @{
     ViewData["Title"] = "GetUsers";
 }
 
 <h1>GetUsers</h1>
-
-@foreach(User u in Model)
+<p>Status Code: @Model.StatusCode </p>
+<p>Description: @Model.Description </p>
+@foreach(User u in Model.Data)
 {
     <p>@u.first_name @u.last_name, @u.age лет, email: @u.email </p>
 }

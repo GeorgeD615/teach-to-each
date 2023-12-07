@@ -2,6 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using TeachToEach.DAL;
 using TeachToEach.DAL.Interfaces;
 using TeachToEach.DAL.Repositories;
+using TeachToEach.Domain.Entity;
+using TeachToEach.Service.Implementations;
+using TeachToEach.Service.Interfaces;
 
 namespace TeachToEach
 {
@@ -20,6 +23,7 @@ namespace TeachToEach
             });
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUserService, UserService>();
 
             var app = builder.Build();
 

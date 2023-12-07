@@ -1,26 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TeachToEach.DAL.Interfaces;
 using TeachToEach.Domain.Entity;
+using TeachToEach.Service.Interfaces;
 
 namespace TeachToEach.Controllers
 {
     public class UserController : Controller
     {
-        private readonly IUserRepository userRepository;
+        private readonly IUserService userService;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserService userService)
         {
-            this.userRepository = userRepository;
+            this.userService = userService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
-            var response = await userRepository.Select();
-            return View(response);
-        }
+            var response = await userService.GetUsers();
 
-        
+            return View(response);
+        }   
 
     }
 }
