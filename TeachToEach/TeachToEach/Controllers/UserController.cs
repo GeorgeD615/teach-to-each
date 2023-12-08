@@ -22,7 +22,10 @@ namespace TeachToEach.Controllers
 
         public async Task<IActionResult> Teacher()
         {
-            //var response = await userRepository.Select();
+            return View();
+        }
+        public async Task<IActionResult> Student()
+        {
             return View();
         }
 

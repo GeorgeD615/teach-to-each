@@ -13,6 +13,9 @@ html {
     background: linear-gradient(90deg, rgba(215,213,252,1) 0%, rgba(170,220,247,1) 52%, rgba(102,178,235,1) 100%);
     font-family: 'Sofia Sans Semi Condensed', sans-serif;
 }
+section#logo-title{
+    padding: 0px 0px 40px;
+}
 
 header, footer, div#separator {
     background: rgb(215,213,252);
@@ -40,13 +43,15 @@ div#description {
 }
 div#desc-teach, div#desc-stud, div#greeting,
 div#entry-button-st, div#entry-button-tc,
-div#personal-data-teach, p#personal-photo-teach {
+div#personal-data-teach, p#personal-photo-teach,
+div#personal-data-stud, p#personal-photo-stud {
     background: white;
 }
 
-p#personal-photo-teach{
+p#personal-photo-teach,
+p#personal-photo-stud {
     margin: 10px;
-    width:100%;
+    width: 100%;
 }
 
 img#logotip {
@@ -67,6 +72,12 @@ h1 {
 h2 {
     text-align: center;
     font-size: 20px;
+}
+
+h2#lk-s, h2#lk-t {
+    color: #00539f;
+    font-size: 30px;
+    text-shadow: 2px 2px 1px white;
 }
 
 div#separator {
