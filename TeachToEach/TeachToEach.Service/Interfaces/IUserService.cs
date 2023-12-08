@@ -15,7 +15,7 @@ namespace TeachToEach.Service.Interfaces
 
         Task<IBaseResponse<UserViewModel>> GetUser(int id);
 
-        Task<IBaseResponse<UserViewModel>> GetUserByFirstName(string first_name);
+        Task<IBaseResponse<UserViewModel>> GetUserByLogin(string login);
 
         Task<IBaseResponse<bool>> CreateUser(UserViewModel newUser);
 

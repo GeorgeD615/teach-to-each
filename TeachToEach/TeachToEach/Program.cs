@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using TeachToEach.DAL;
 using TeachToEach.DAL.Interfaces;
@@ -22,8 +23,17 @@ namespace TeachToEach
                 o.UseNpgsql(builder.Configuration.GetConnectionString("DB_Connection"));
             });
 
-            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                });
+
+
+            builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IAccountService, AccountService>();
 
             var app = builder.Build();
 
@@ -40,11 +50,12 @@ namespace TeachToEach
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=User}/{action=GetUsers}/{id?}");
 
             app.Run();
         }

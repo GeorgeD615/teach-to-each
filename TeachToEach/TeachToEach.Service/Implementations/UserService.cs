@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,8 @@ namespace TeachToEach.Service.Implementations
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepository userRepository;
-        public UserService(IUserRepository userRepository)
+        private readonly IBaseRepository<User> userRepository;
+        public UserService(IBaseRepository<User> userRepository)
         {
             this.userRepository = userRepository;
         }
@@ -161,12 +162,12 @@ namespace TeachToEach.Service.Implementations
             }
             return response;
         }
-        public async Task<IBaseResponse<UserViewModel>> GetUserByFirstName(string first_name)
+        public async Task<IBaseResponse<UserViewModel>> GetUserByLogin(string login)
         {
             var response = new BaseResponse<UserViewModel>();
             try
             {
-                var user = await userRepository.GetByFirstName(first_name);
+                var user = await userRepository.GetAll().FirstOrDefaultAsync(u => u.login == login);
                 if (user == null)
                 {
                     response.StatusCode = Domain.Enum.StatusCode.UserNotFound;
@@ -197,7 +198,7 @@ namespace TeachToEach.Service.Implementations
             var responce = new BaseResponse<IEnumerable<UserViewModel>>();
             try
             {
-                var users = await userRepository.Select();
+                var users = userRepository.GetAll();
                 responce.Description = $"Найдено {users.Count()} элементов";
                 responce.StatusCode = Domain.Enum.StatusCode.OK;
                 responce.Data = users.Select(u => new UserViewModel()

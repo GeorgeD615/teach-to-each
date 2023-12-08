@@ -14,6 +14,9 @@ namespace TeachToEach.Domain.Enum
         UserNotRemoved = 2,
         UserNotUpdated = 3,
 
+        //Account
+        AccountAlreadyExists = 4,
+
         OK = 200,
         InternalServerError = 500
     }

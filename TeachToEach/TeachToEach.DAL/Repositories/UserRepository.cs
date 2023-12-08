@@ -9,7 +9,7 @@ using TeachToEach.Domain.Entity;
 
 namespace TeachToEach.DAL.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : IBaseRepository<User>
     {
         private readonly AppDbContext _db;
 
@@ -44,14 +44,14 @@ namespace TeachToEach.DAL.Repositories
             return await _db.Users.FirstOrDefaultAsync(u => u.id == id);
         }
 
-        public async Task<User> GetByFirstName(string first_name)
+        public async Task<User> GetByLogin(string login)
         {
-            return await _db.Users.FirstOrDefaultAsync(u => u.first_name == first_name);
+            return await _db.Users.FirstOrDefaultAsync(u => u.login == login);
         }
 
-        public async Task<IEnumerable<User>> Select()
+        public IQueryable<User> GetAll()
         {
-            return await _db.Users.ToListAsync();
+            return _db.Users;
         }
     }
 }
