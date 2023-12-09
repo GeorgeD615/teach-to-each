@@ -11,8 +11,8 @@ using TeachToEach.DAL;
 namespace TeachToEach.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231208120527_AddUserRegisterFields")]
-    partial class AddUserRegisterFields
+    [Migration("20231209170323_InitialDatabase")]
+    partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace TeachToEach.DAL.Migrations
                 .HasAnnotation("ProductVersion", "6.0.22")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            NpgsqlModelBuilderExtensions.UseSerialColumns(modelBuilder);
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("TeachToEach.Domain.Entity.User", b =>
                 {
@@ -29,7 +29,7 @@ namespace TeachToEach.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseSerialColumn(b.Property<int>("id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
                     b.Property<int>("age")
                         .HasColumnType("integer");
@@ -40,15 +40,19 @@ namespace TeachToEach.DAL.Migrations
 
                     b.Property<string>("first_name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)")
+                        .HasColumnName("FirstName");
 
                     b.Property<string>("last_name")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
 
                     b.Property<string>("login")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
 
                     b.Property<string>("password")
                         .IsRequired()

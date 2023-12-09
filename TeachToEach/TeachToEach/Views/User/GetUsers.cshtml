@@ -7,17 +7,21 @@
 }
 
 <h1>GetUsers</h1>
-<p>Status Code: @Model.StatusCode </p>
-<p>Description: @Model.Description </p>
-@if (Model.Data != null)
+@if (User.Identity.IsAuthenticated)
 {
-    @foreach (UserViewModel u in Model.Data)
+    <p>Current user @User.Identity.Name</p>
+    <p>Status Code: @Model.StatusCode </p>
+    <p>Description: @Model.Description </p>
+    @if (Model.Data != null)
     {
-        <p>@u.first_name @u.last_name, @u.age лет, email: @u.email </p>
+        @foreach (UserViewModel u in Model.Data)
+        {
+            <p>@u.first_name @u.last_name, @u.age лет, email: @u.email </p>
+        }
     }
-}
 
-<a class="nav-link" asp-area="" asp-controller="User" asp-action="CreateUser">CreateUser</a>
-<a class="nav-link" asp-area="" asp-controller="User" asp-action="DeleteUser">DeleteUser</a>
-<a class="nav-link" asp-area="" asp-controller="User" asp-action="EditUser">EditUser</a>
+    <a class="nav-link" asp-area="" asp-controller="User" asp-action="CreateUser">CreateUser</a>
+    <a class="nav-link" asp-area="" asp-controller="User" asp-action="DeleteUser">DeleteUser</a>
+    <a class="nav-link" asp-area="" asp-controller="User" asp-action="EditUser">EditUser</a>  
+}
 
