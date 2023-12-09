@@ -1,7 +1,8 @@
 ﻿@using TeachToEach.Domain.Entity;
 @model IEnumerable<User>
+
 @{
-    ViewData["Title"] = "Student";
+    ViewData["Title"] = "GetHWtoTeacher";
 }
 
 <body>
@@ -18,30 +19,27 @@
         </div>
     </section>
 
-    <h2  id="lk-s">Личный кабинет ученика</h2>
+    <h2 id="lk-s">Личный кабинет преподавателя</h2>
 
     <div id="lk-body" class="container-fluid">
         <div class="row">
             <div id="side-nav-stud" class="col-2">
 
                 <div class="sidenav">
-                    <a href="/User/Student">Моя страница</a>
-                    <a href="/User/GetTeachers">Преподаватели</a>
-                    <a href="/User/GetHWtoStudent">Домашние задания</a>
+                    <a href="/User/Teacher">Моя страница</a>
+                    <a href="/User/GetStudents">Ученики</a>
+                    <a href="/User/GetHWtoTeacher">Домашние задания</a>
                 </div>
 
             </div>
 
-            <div id="personal-data-stud" class="col-7">
-                <p>
-                    Здесь лежат различные данные об ученике.
-                </p>
+            <div id="personal-data-stud" class="col-10">
+                <h2 id="lk-s">Домашние задания</h2>
+                <p>Здесь выводится список дз из БД</p>
+
             </div>
 
-            <div id="lk-photo-stud" class="col-3">
-                <img id="logotip" src="~/images/defolt-avatar.png" alt="Avatar">
-                <p id="personal-photo-stud">Ваше фото</p>
-            </div>
+
 
         </div>
 
@@ -62,4 +60,3 @@
     </main>
 
 </body>
-

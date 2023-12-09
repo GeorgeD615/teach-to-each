@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\polin\\OneDrive\\Documents\\GitHub\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\images\\defolt-avatar.png",
+      "PackagePath": "staticwebassets\\images\\defolt-avatar.png"
+    },
+    {
       "Id": "C:\\Users\\polin\\OneDrive\\Documents\\GitHub\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\images\\main-logo.png",
       "PackagePath": "staticwebassets\\images\\main-logo.png"
     },

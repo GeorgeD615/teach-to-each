@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "O7Gx558bv9Ul9dVt8pXeFs66uO745/ycFqDrGljyBNE=",
+  "Hash": "H8vQvkZ2HP2N9JsIH1hT3jhbjrlx20fpnetBsEvaVPo=",
   "Source": "TeachToEach",
   "BasePath": "_content/TeachToEach",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\polin\\OneDrive\\Documents\\GitHub\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\images\\defolt-avatar.png",
+      "SourceId": "TeachToEach",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\polin\\OneDrive\\Documents\\GitHub\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\",
+      "BasePath": "_content/TeachToEach",
+      "RelativePath": "images/defolt-avatar.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\defolt-avatar.png"
     },
     {
       "Identity": "C:\\Users\\polin\\OneDrive\\Documents\\GitHub\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\images\\main-logo.png",

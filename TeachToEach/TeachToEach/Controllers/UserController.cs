@@ -29,6 +29,26 @@ namespace TeachToEach.Controllers
             return View();
         }
 
+        public async Task<IActionResult> GetTeachers()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> GetStudents()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> GetHWtoStudent()
+        {
+            return View();
+        }
+        public async Task<IActionResult> GetHWtoTeacher()
+        {
+            return View();
+        }
+
+
 
 
     }

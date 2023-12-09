@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewData["Title"] = "GetTeachers";
+}
+
+<body>
+    <section id="logo-title">
+        <div class="content">
+            <div class="row">
+                <div class="col-2" id="logo">
+                    <img id="logotip" src="~/main-logo.png" alt="Main logo">
+                </div>
+                <div class="col-10">
+                    <h1 class="text-centre">Teach-to-each</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h2 id="lk-s">Личный кабинет ученика</h2>
+
+    <div id="lk-body" class="container-fluid">
+        <div class="row">
+            <div id="side-nav-stud" class="col-2">
+
+                <div class="sidenav">
+                    <a href="/User/Student">Моя страница</a>
+                    <a href="/User/GetTeachers">Преподаватели</a>
+                    <a href="/User/GetHWtoStudent">Домашние задания</a>
+                </div>
+
+            </div>
+
+            <div id="personal-data-stud" class="col-10">
+                <h2 id="lk-s">Преподаватели</h2>
+                <div class="tab">
+                    <input checked type="radio" name="btntoteach" id="bt-my-teach" value="">
+                    <label class="btn btn-outline-primary" for="bt-my-teach">Мои преподаватели</label>
+
+                    <input type="radio" name="btntoteach" id="bt-my-request" value="">
+                    <label class="btn btn-outline-primary" for="bt-my-request">Мои запросы</label>
+
+                    <input type="radio" name="btntoteach" id="bt-find-teach" value="">
+                    <label class="btn btn-outline-primary" for="bt-find-teach">Найти преподавателя</label>
+
+                    <div class="tab-content" id="content-1">
+                        <p>Здесь выводится список из БД</p>
+                    </div>
+                    <div class="tab-content" id="content-2">
+                        <p>Здесь выводится список из БД</p>
+                    </div>
+                    <div class="tab-content" id="content-3">
+                        <form id="form-search-teacher">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputLastName">Фамилия</label>
+                                    <input type="text" class="form-control" id="inputLastName" placeholder="Фамилия">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputFirstName">Имя</label>
+                                    <input type="text" class="form-control" id="inputFirstName" placeholder="Имя">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputDadName">Отчество</label>
+                                    <input type="text" class="form-control" id="inputDadName" placeholder="Отчество">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity">City</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputSubject">Предмет</label>
+                                    <select id="inputSubject" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>"Математика"</option>
+                                        <option>Информатика</option>
+                                        <option>Литература</option>
+                                        <option>Обществознание</option>
+                                        <option>Программирование</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" type="checkbox"> Есть отзывы на сайте
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="search-teacher">Найти</button>
+                        </form>
+
+                    </div>
+                </div>            
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <main>
+        <aside>
+            <h2>Связанные темы</h2>
+
+            <ul>
+                <li><a href="#">Как найти хорошего репетитора?</a></li>
+                <li><a href="#">Как стать самостоятельным?</a></li>
+            </ul>
+        </aside>
+    </main>
+
+</body>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+
