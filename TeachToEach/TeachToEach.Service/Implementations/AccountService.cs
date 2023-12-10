@@ -45,7 +45,7 @@ namespace TeachToEach.Service.Implementations
                     last_name = model.LastName,
                     email = model.Email,
                     age = model.Age,
-                    role = Role.User,
+                    role_id = 1,
                     password = HashPasswordHelper.HashPassowrd(model.Password),
                     login = model.Login
                 };
@@ -113,7 +113,7 @@ namespace TeachToEach.Service.Implementations
             var claims = new List<Claim>
             {
                 new Claim(ClaimsIdentity.DefaultNameClaimType, user.login),
-                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.role.ToString())
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.role.name)
             };
             return new ClaimsIdentity(claims, "ApplicationCookie",
                 ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
