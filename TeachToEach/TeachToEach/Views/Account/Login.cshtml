@@ -4,15 +4,25 @@
 }
 @if (!User.Identity.IsAuthenticated)
 {
-    <h1>Login</h1>
+    <h2 id="login-form">Введите данные для входа в аккаунт</h2>
 
-    <div>
-        <form method="post" asp-controller="Account" asp-action="Login">
-            <input asp-for="Login" placeholder="Логин" class="form-control textbox-dg font-weight-bold text-center" type="text">
-            <input autocomplete="new-password" asp-for="Password" placeholder="Пароль" class="form-control textbox-dg font-weight-bold text-center" type="password">
-            <button class="btn btn-primary btn-lg float-right" type="submit">Отправить</button>
-        </form>
+    <div class="content">
+        <div class="row">
+            <div class="col-4"></div>
+            <div id="login-form" class="col-4">
+            <form method="post" asp-controller="Account" asp-action="Login">
+                <input asp-for="Login" placeholder="Логин" class="form-control textbox-dg font-weight-bold text-center" type="text">
+                <input autocomplete="new-password" asp-for="Password" placeholder="Пароль" class="form-control textbox-dg font-weight-bold text-center" type="password">
+                <button class="btn btn-primary btn-lg float-right" type="submit">Отправить</button>
+            </form>
+                <h4 id="login-form">Нет аккаунта?</h4>
+                <a href="Account/Register" id="btn-registr" class="btn btn-primary">Зарегистрироваться</a>
+        </div>
+        </div>
+
     </div>
+
+
 }
 
 @if (User.Identity.IsAuthenticated)

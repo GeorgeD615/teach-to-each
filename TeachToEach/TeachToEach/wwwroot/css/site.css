@@ -77,11 +77,17 @@ h2 {
     font-size: 20px;
 }
 
-    h2#lk-s, h2#lk-t {
-        color: #00539f;
-        font-size: 30px;
-        text-shadow: 2px 2px 1px white;
-    }
+h2#lk-s, h2#lk-t, h2#login-form {
+    color: #00539f;
+    font-size: 30px;
+    text-shadow: 2px 2px 1px white;
+}
+h4#login-form {
+    color: #00539f;
+    font-size: 20px;
+    text-shadow: 2px 2px 1px white;
+    padding:15px 0px 5px;
+}
 
 div#separator {
     height: 40px;
@@ -100,6 +106,11 @@ img {
     text-align: center;
     padding: 10px;
 }
+
+div#login-form, btn#btn-send {
+    text-align: center;
+}
+
 
 .btn-itd {
     display: block;

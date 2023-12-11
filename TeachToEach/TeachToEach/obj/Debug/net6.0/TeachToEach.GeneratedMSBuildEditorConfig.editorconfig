@@ -9,85 +9,85 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TeachToEach
 build_property.RootNamespace = TeachToEach
-build_property.ProjectDir = C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach\
+build_property.ProjectDir = C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach
+build_property.MSBuildProjectDirectory = C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Account/Login.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Account/Register.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Home/Index.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Home/Privacy.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Shared/Error.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Student/GetHWtoStudent.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Student/GetHWtoStudent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxHZXRIV3RvU3R1ZGVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Student/GetTeachers.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Student/GetTeachers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxHZXRUZWFjaGVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Student/Student.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Student/Student.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxTdHVkZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Teacher/GetHWtoTeacher.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Teacher/GetHWtoTeacher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxHZXRIV3RvVGVhY2hlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Teacher/GetStudents.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Teacher/GetStudents.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxHZXRTdHVkZW50cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Teacher/Teacher.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Teacher/Teacher.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlclxUZWFjaGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/User/CreateUser.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/User/CreateUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGVVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/User/EditUser.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/User/EditUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/User/GetUser.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/User/GetUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHZXRVc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/User/GetUsers.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/User/GetUsers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxHZXRVc2Vycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/_ViewImports.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/_ViewStart.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OMEN/source/repos/teach-to-each/TeachToEach/TeachToEach/Views/Shared/_Layout.cshtml]
+[C:/Users/polin/OneDrive/Documents/GitHub/teach-to-each/TeachToEach/TeachToEach/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-z8be1xlnck

@@ -9,3 +9,15 @@ C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debu
 C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\refint\TeachToEach.Domain.dll
 C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.pdb
 C:\Users\OMEN\source\repos\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\ref\TeachToEach.Domain.dll
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\bin\Debug\net6.0\TeachToEach.Domain.deps.json
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\bin\Debug\net6.0\TeachToEach.Domain.dll
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\bin\Debug\net6.0\TeachToEach.Domain.pdb
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.csproj.AssemblyReference.cache
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.AssemblyInfoInputs.cache
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.AssemblyInfo.cs
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.csproj.CoreCompileInputs.cache
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.dll
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\refint\TeachToEach.Domain.dll
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\TeachToEach.Domain.pdb
+C:\Users\polin\OneDrive\Documents\GitHub\teach-to-each\TeachToEach\TeachToEach.Domain\obj\Debug\net6.0\ref\TeachToEach.Domain.dll
