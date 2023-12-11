@@ -1,12 +1,27 @@
-﻿@using TeachToEach.Domain.Entity;
-@model IEnumerable<User>
+﻿@using TeachToEach.Domain.Response;
+@using TeachToEach.Domain.ViewModels.User
+@using TeachToEach.Domain.Entity
+@model BaseResponse<IEnumerable<UserViewModel>>
 @{
     ViewData["Title"] = "GetUsers";
 }
 
 <h1>GetUsers</h1>
-
-@foreach(User u in Model)
+@if (User.Identity.IsAuthenticated)
 {
-    <p>@u.first_name @u.last_name, @u.age лет, email: @u.email </p>
+    <p>Current user @User.Identity.Name</p>
+    <p>Status Code: @Model.StatusCode </p>
+    <p>Description: @Model.Description </p>
+    @if (Model.Data != null)
+    {
+        @foreach (UserViewModel u in Model.Data)
+        {
+            <p>@u.first_name @u.last_name, @u.age лет, email: @u.email </p>
+        }
+    }
+
+    <a class="nav-link" asp-area="" asp-controller="User" asp-action="CreateUser">CreateUser</a>
+    <a class="nav-link" asp-area="" asp-controller="User" asp-action="DeleteUser">DeleteUser</a>
+    <a class="nav-link" asp-area="" asp-controller="User" asp-action="EditUser">EditUser</a>  
 }
+

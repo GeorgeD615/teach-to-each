@@ -1,0 +1,14 @@
+﻿@model TeachToEach.Domain.ViewModels.Account.LogInViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<div>
+    <form method="post" asp-controller="Account" asp-action="Login">
+        <input asp-for="Login" placeholder="Логин" class="form-control textbox-dg font-weight-bold text-center" type="text">
+        <input autocomplete="new-password" asp-for="Password" placeholder="Пароль" class="form-control textbox-dg font-weight-bold text-center" type="password">
+        <button class="btn btn-primary btn-lg float-right" type="submit">Отправить</button>
+    </form>
+</div>

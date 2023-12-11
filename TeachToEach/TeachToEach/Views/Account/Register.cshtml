@@ -1,0 +1,20 @@
+﻿@model TeachToEach.Domain.ViewModels.Account.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+<div>
+    <form asp-controller="Account" asp-action="Register">
+        
+        <input asp-for="FirstName" class="form-control textbox-dg font-weight-bold text-center" placeholder="Имя" type="text">
+        <input asp-for="LastName" class="form-control textbox-dg font-weight-bold text-center" placeholder="Фамилия" type="text">
+        <input asp-for="Email" class="form-control textbox-dg font-weight-bold text-center" placeholder="Почта" type="text">
+        <input asp-for="Age" class="form-control textbox-dg font-weight-bold text-center" placeholder="Возраст" type="number">
+        <input asp-for="Login" class="form-control textbox-dg font-weight-bold text-center" placeholder="Логин" type="text">
+        <input asp-for="Password" placeholder="Пароль" class="form-control textbox-dg font-weight-bold text-center" type="password">
+        <input asp-for="PasswordConfirm" placeholder="Повторите пароль" class="form-control textbox-dg font-weight-bold text-center" type="password">
+        <button class="btn btn-success btn-lg float-right" type="submit">Отправить</button>
+    </form>
+</div>

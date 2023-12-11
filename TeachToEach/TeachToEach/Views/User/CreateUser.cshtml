@@ -1,0 +1,17 @@
+﻿@using TeachToEach.Domain.ViewModels.User;
+@model UserViewModel
+@{
+    ViewData["Title"] = "CreateUser";
+}
+
+<h1>CreateUser</h1>
+
+<div>
+    <form asp-action="CreateUser" asp-controller="User" method="post">
+        <input type="text" asp-for="first_name" class="form-control" />
+        <input type="text" asp-for="last_name" class="form-control" />
+        <input type="email" asp-for="email" class="form-control" />
+        <input type="number" asp-for="age" class="form-control" />
+        <button class="btn btn-primary float-right" type="submit">Отправить</button>
+    </form>
+</div>

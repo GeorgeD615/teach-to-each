@@ -11,7 +11,8 @@ namespace TeachToEach.DAL.Interfaces
     {
         Task<bool> Create(T entity);
         Task<T> Get(int id);
-        public Task<IEnumerable<T>> Select();
+        IQueryable<T> GetAll();
         Task<bool> Delete(T entity);
+        Task<bool> Edit(T entity);
     }
 }

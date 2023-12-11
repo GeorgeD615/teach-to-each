@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TeachToEach.DAL\TeachToEach.DAL.csproj" />
     <ProjectReference Include="..\TeachToEach.Domain\TeachToEach.Domain.csproj" />
+    <ProjectReference Include="..\TeachToEach.Service\TeachToEach.Service.csproj" />
   </ItemGroup>
 
 </Project>
