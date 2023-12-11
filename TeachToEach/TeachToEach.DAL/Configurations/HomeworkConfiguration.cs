@@ -15,8 +15,8 @@ namespace TeachToEach.DAL.Configurations
         {
             builder.Property(h => h.id).ValueGeneratedOnAdd().HasColumnName("homework_id");
             builder.Property(h => h.description).HasColumnType("description").HasColumnType("text").HasMaxLength(1000).IsRequired();
-            builder.Property(h => h.deadline).HasColumnName("deadline").IsRequired(false).HasColumnType("text");
-            builder.Property(h => h.solution_time).HasColumnName("solution_time");
+            builder.Property(h => h.deadline).HasColumnName("deadline").IsRequired(true).HasColumnType("timestamp without time zone");
+            builder.Property(h => h.solution_time).HasColumnName("solution_time").IsRequired(true).HasColumnType("timestamp without time zone");
             builder.Property(h => h.is_completed).HasDefaultValue(false).HasColumnName("is_completed").HasColumnType("bool");
             builder.Property(h => h.solution).HasColumnType("text").HasColumnName("solution").IsRequired(false);
             builder.Property(h => h.teacher_comment).HasColumnName("teacher_comment").IsRequired(false);

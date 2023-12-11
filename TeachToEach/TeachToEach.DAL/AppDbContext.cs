@@ -26,6 +26,8 @@ namespace TeachToEach.DAL
         public DbSet<StatusOfRelation> StatusOfRelations { get; set; }
 
         public DbSet<Homework> Homeworks { get; set; }
+
+        public DbSet<TeacherSubject> TeacherSubjects { get; set; }
  
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,6 +38,7 @@ namespace TeachToEach.DAL
             modelBuilder.ApplyConfiguration(new TeacherStudentConfiguration());
             modelBuilder.ApplyConfiguration(new StatusOfRelationsConfiguration());
             modelBuilder.ApplyConfiguration(new HomeworkConfiguration());
+            modelBuilder.ApplyConfiguration(new TeacherSubjectConfiguration());
         }
 
 

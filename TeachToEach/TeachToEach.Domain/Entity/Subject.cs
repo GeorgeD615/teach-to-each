@@ -15,5 +15,6 @@ namespace TeachToEach.Domain.Entity
         public int id { get; set; }
         public string name { get; set; }
         public List<TeacherStudent> teacher_student_relations { get; set; }
+        public List<TeacherSubject> teacher_subject_relation { get; set; } 
     }
 }

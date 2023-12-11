@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TeachToEach.DAL;
@@ -11,9 +12,10 @@ using TeachToEach.DAL;
 namespace TeachToEach.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231211090903_FixDateTimeType")]
+    partial class FixDateTimeType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,7 +33,7 @@ namespace TeachToEach.DAL.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<DateTime>("deadline")
+                    b.Property<DateTime?>("deadline")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("deadline");
 
@@ -53,7 +55,7 @@ namespace TeachToEach.DAL.Migrations
                         .HasColumnType("text")
                         .HasColumnName("solution");
 
-                    b.Property<DateTime>("solution_time")
+                    b.Property<DateTime?>("solution_time")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("solution_time");
 
