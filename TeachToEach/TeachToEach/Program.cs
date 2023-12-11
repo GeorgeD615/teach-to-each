@@ -55,7 +55,7 @@ namespace TeachToEach
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=User}/{action=GetUsers}/{id?}");
+                pattern: "{controller=Account}/{action=Login}/{id?}");
 
             app.Run();
         }

@@ -2,7 +2,7 @@
 @model IEnumerable<User>
 
 @{
-    ViewData["Title"] = "GetHWtoStudent";
+    ViewData["Title"] = "GetHWtoTeacher";
 }
 
 <body>
@@ -19,16 +19,16 @@
         </div>
     </section>
 
-    <h2 id="lk-s">Личный кабинет ученика</h2>
+    <h2 id="lk-s">Личный кабинет преподавателя</h2>
 
     <div id="lk-body" class="container-fluid">
         <div class="row">
             <div id="side-nav-stud" class="col-2">
 
                 <div class="sidenav">
-                    <a href="/User/Student">Моя страница</a>
-                    <a href="/User/GetTeachers">Мои занятия</a>
-                    <a href="/User/GetHWtoStudent">Домашние задания</a>
+                    <a asp-controller="Teacher" asp-action="Teacher">Моя страница</a>
+                    <a asp-controller="Teacher" asp-action="GetStudents">Ученики</a>
+                    <a asp-controller="Teacher" asp-action="GetHWtoTeacher">Домашние задания</a>
                 </div>
 
             </div>
@@ -39,9 +39,13 @@
 
             </div>
 
+
+
         </div>
 
     </div>
+
+
 
 
     <main>

@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace TeachToEach.DAL.Migrations
 {
-    public partial class InitialDatabase : Migration
+    public partial class InitDataBase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -116,6 +117,32 @@ namespace TeachToEach.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TeacherSubjects",
+                columns: table => new
+                {
+                    relation_id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    teacher_id = table.Column<int>(type: "integer", nullable: false),
+                    subject_id = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TeacherSubjects", x => x.relation_id);
+                    table.ForeignKey(
+                        name: "FK_TeacherSubjects_Subjects_subject_id",
+                        column: x => x.subject_id,
+                        principalTable: "Subjects",
+                        principalColumn: "subject_id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TeacherSubjects_Users_teacher_id",
+                        column: x => x.teacher_id,
+                        principalTable: "Users",
+                        principalColumn: "user_id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Homeworks",
                 columns: table => new
                 {
@@ -123,8 +150,8 @@ namespace TeachToEach.DAL.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     relation_id = table.Column<int>(type: "integer", nullable: false),
                     description = table.Column<string>(type: "text", maxLength: 1000, nullable: false),
-                    deadline = table.Column<string>(type: "text", nullable: true),
-                    solution_time = table.Column<string>(type: "text", nullable: false),
+                    deadline = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    solution_time = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     is_completed = table.Column<bool>(type: "bool", nullable: false, defaultValue: false),
                     solution = table.Column<string>(type: "text", nullable: true),
                     teacher_comment = table.Column<string>(type: "text", nullable: true)
@@ -232,6 +259,16 @@ namespace TeachToEach.DAL.Migrations
                 column: "teacher_id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_TeacherSubjects_subject_id",
+                table: "TeacherSubjects",
+                column: "subject_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TeacherSubjects_teacher_id",
+                table: "TeacherSubjects",
+                column: "teacher_id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Users_role_id",
                 table: "Users",
                 column: "role_id");
@@ -244,6 +281,9 @@ namespace TeachToEach.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Ratings");
+
+            migrationBuilder.DropTable(
+                name: "TeacherSubjects");
 
             migrationBuilder.DropTable(
                 name: "TeacherStudentRelation");

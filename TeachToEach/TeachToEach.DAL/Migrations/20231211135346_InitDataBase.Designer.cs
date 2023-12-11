@@ -12,8 +12,8 @@ using TeachToEach.DAL;
 namespace TeachToEach.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231211090903_FixDateTimeType")]
-    partial class FixDateTimeType
+    [Migration("20231211135346_InitDataBase")]
+    partial class InitDataBase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,7 +33,7 @@ namespace TeachToEach.DAL.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<DateTime?>("deadline")
+                    b.Property<DateTime>("deadline")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("deadline");
 
@@ -55,7 +55,7 @@ namespace TeachToEach.DAL.Migrations
                         .HasColumnType("text")
                         .HasColumnName("solution");
 
-                    b.Property<DateTime?>("solution_time")
+                    b.Property<DateTime>("solution_time")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("solution_time");
 

@@ -84,34 +84,6 @@ namespace TeachToEach.Controllers
             return RedirectToAction("GetUsers");
         }
 
-        public async Task<IActionResult> Teacher()
-        {
-            return View();
-        }
-        public async Task<IActionResult> Student()
-        {
-            return View();
-        }
-
-        public async Task<IActionResult> GetTeachers()
-        {
-            return View();
-        }
-
-        public async Task<IActionResult> GetStudents()
-        {
-            return View();
-        }
-
-        public async Task<IActionResult> GetHWtoStudent()
-        {
-            return View();
-        }
-        public async Task<IActionResult> GetHWtoTeacher()
-        {
-            return View();
-        }
-
 
 
 
