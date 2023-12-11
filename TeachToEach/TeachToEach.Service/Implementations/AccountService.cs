@@ -51,6 +51,20 @@ namespace TeachToEach.Service.Implementations
                 };
 
                 await _userRepository.Create(user);
+                switch (user.role_id)
+                {
+                    case 1:
+                        user.role = new Role() { id = 1, name = "User" };
+                        break;
+                    case 2:
+                        user.role = new Role() { id = 2, name = "Moderator" };
+                        break;
+                    case 3:
+                        user.role = new Role() { id = 3, name = "Admin" };
+                        break;
+                    default:
+                        break;
+                }
                 var result = Authenticate(user);
 
                 return new BaseResponse<ClaimsIdentity>()
@@ -89,6 +103,20 @@ namespace TeachToEach.Service.Implementations
                     {
                         Description = "Неверный пароль"
                     };
+                }
+                switch (user.role_id)
+                {
+                    case 1:
+                        user.role = new Role() { id = 1, name = "User" };
+                        break;
+                    case 2:
+                        user.role = new Role() { id = 2, name = "Moderator" };
+                        break;
+                    case 3:
+                        user.role = new Role() { id = 3, name = "Admin" };
+                        break;
+                    default:
+                        break;
                 }
                 var result = Authenticate(user);
 
