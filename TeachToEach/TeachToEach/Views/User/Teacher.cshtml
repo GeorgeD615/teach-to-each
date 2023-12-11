@@ -1,0 +1,64 @@
+﻿@using TeachToEach.Domain.Entity;
+@model IEnumerable<User>
+@{
+    ViewData["Title"] = "Teacher";
+}
+
+<body>
+    <section id="logo-title">
+        <div class="content">
+            <div class="row">
+                <div class="col-2" id="logo">
+                    <img id="logotip" src="~/main-logo.png" alt="Main logo">
+                </div>
+                <div class="col-10">
+                    <h1 class="text-centre">Teach-to-each</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h2 id ="lk-t">Личный кабинет преподавателя</h2>
+
+            <div id="lk-body" class="container-fluid">
+                <div class="row">
+                    <div id="side-nav-teach" class="col-2">
+
+                        <div class="sidenav">
+                            <a href="/User/Teacher">Моя страница</a>
+                            <a href="/User/GetStudents">Ученики</a>
+                            <a href="/User/GetHWtoTeacher">Домашние задания</a>
+                        </div>
+
+                    </div>
+
+                    <div id="personal-data-teach" class="col-7">
+                        <p>
+                            Здесь лежат различные данные о преподавателе.
+                        </p>
+                    </div>
+
+                    <div id="lk-photo-teach" class="col-3">
+                <img id="logotip" src="~/images/defolt-avatar.png" alt="Avatar">
+                        <p id="personal-photo-teach">Ваше фото</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+    <main>
+        <aside>
+            <h2>Связанные темы</h2>
+
+            <ul>
+                <li><a href="#">Как найти хорошего репетитора?</a></li>
+                <li><a href="#">Как стать самостоятельным?</a></li>
+            </ul>
+        </aside>
+    </main>
+
+</body>
