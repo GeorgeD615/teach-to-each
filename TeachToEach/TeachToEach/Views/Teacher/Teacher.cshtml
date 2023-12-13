@@ -1,5 +1,5 @@
-﻿@using TeachToEach.Domain.Entity;
-@model IEnumerable<User>
+﻿@using TeachToEach.Domain.ViewModels.Teacher
+@model TeacherProfileViewModel
 @{
     ViewData["Title"] = "Teacher";
 }
@@ -36,6 +36,19 @@
                         <p>
                             Здесь лежат различные данные о преподавателе.
                         </p>
+                        <p> Имя: @Model.FirstName </p>
+                        <p> Фамилия: @Model.LastName </p>
+                        <p> Возраст: @Model.Age </p>
+                        <p> Логин: @Model.Login </p>
+                        <p> Мои предметы: </p>
+                        @if(Model != null)
+                        {
+                            @foreach (var item in Model.Subjects)
+                            {
+                                <p>@item.SubjectName</p>
+                            }
+                        }
+                        
                     </div>
 
                     <div id="lk-photo-teach" class="col-3">

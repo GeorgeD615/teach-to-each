@@ -19,10 +19,12 @@ namespace TeachToEach.Service.Implementations
     public class AccountService : IAccountService
     {
         private readonly IBaseRepository<User> _userRepository;
+        private readonly IBaseRepository<Role> _roleRepository;
 
-        public AccountService(IBaseRepository<User> userRepository)
+        public AccountService(IBaseRepository<User> userRepository, IBaseRepository<Role> roleRepository)
         {
             _userRepository = userRepository;
+            _roleRepository = roleRepository;
         }
 
         public async Task<BaseResponse<ClaimsIdentity>> Register(RegisterViewModel model)
@@ -51,20 +53,7 @@ namespace TeachToEach.Service.Implementations
                 };
 
                 await _userRepository.Create(user);
-                switch (user.role_id)
-                {
-                    case 1:
-                        user.role = new Role() { id = 1, name = "User" };
-                        break;
-                    case 2:
-                        user.role = new Role() { id = 2, name = "Moderator" };
-                        break;
-                    case 3:
-                        user.role = new Role() { id = 3, name = "Admin" };
-                        break;
-                    default:
-                        break;
-                }
+                user.role = await _roleRepository.Get(user.role_id);
                 var result = Authenticate(user);
 
                 return new BaseResponse<ClaimsIdentity>()
@@ -104,20 +93,7 @@ namespace TeachToEach.Service.Implementations
                         Description = "Неверный пароль"
                     };
                 }
-                switch (user.role_id)
-                {
-                    case 1:
-                        user.role = new Role() { id = 1, name = "User" };
-                        break;
-                    case 2:
-                        user.role = new Role() { id = 2, name = "Moderator" };
-                        break;
-                    case 3:
-                        user.role = new Role() { id = 3, name = "Admin" };
-                        break;
-                    default:
-                        break;
-                }
+                user.role = await _roleRepository.Get(user.role_id);
                 var result = Authenticate(user);
 
                 return new BaseResponse<ClaimsIdentity>()
