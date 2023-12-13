@@ -1,5 +1,5 @@
-﻿@using TeachToEach.Domain.Entity;
-@model IEnumerable<User>
+﻿@using TeachToEach.Domain.ViewModels.Student
+@model IEnumerable<StudentHomeworkViewModel>
 
 @{
     ViewData["Title"] = "GetHWtoStudent";
@@ -36,7 +36,10 @@
             <div id="personal-data-stud" class="col-10">
                 <h2 id="lk-s">Домашние задания</h2>
                 <p>Здесь выводится список дз из БД</p>
-
+                @foreach (var item in Model)
+                {
+                    <p>@item.Subject.SubjectName @item.Deadline @item.Description</p>
+                }
             </div>
 
         </div>

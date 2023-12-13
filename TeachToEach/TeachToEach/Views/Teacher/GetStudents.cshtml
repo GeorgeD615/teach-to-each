@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<TeachToEach.Domain.ViewModels.Teacher.TeacherStudentsInfoViewModel>
+@{
     ViewData["Title"] = "GetStudents";
 }
 
@@ -41,9 +42,37 @@
 
                     <div class="tab-content" id="content-1">
                         <p>Здесь выводится список из БД</p>
+                        @if(Model != null)
+                        {
+                            @foreach (var item in Model)
+                            {
+                                if(item.status_id == item.aprove_id)
+                                {
+                                    <p>@item.Student.first_name  @item.Student.last_name  @item.Subject.SubjectName </p>
+                                }
+                            }
+                        }
                     </div>
                     <div class="tab-content" id="content-2">
                         <p>Здесь выводится список из БД</p>
+                        @if (Model != null)
+                        {
+                            @foreach (var item in Model)
+                            {
+                                if (item.status_id != item.aprove_id)
+                                {
+                                    @if (item.status_id == item.request_id)
+                                    {
+                                        <p>Запрос</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Отказано</p>
+                                    }
+                                    <p>@item.Student.first_name  @item.Student.last_name  @item.Subject.SubjectName</p>
+                                }
+                            }
+                        }
                     </div>
                     
                 </div>

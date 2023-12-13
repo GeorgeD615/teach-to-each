@@ -32,8 +32,19 @@ namespace TeachToEach
 
 
             builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
+            builder.Services.AddScoped<IBaseRepository<Homework>, HomeworkRepository>();
+            builder.Services.AddScoped<IBaseRepository<Rating>, RatingRepository>();
+            builder.Services.AddScoped<IBaseRepository<Role>, RoleRepository>();
+            builder.Services.AddScoped<IBaseRepository<StatusOfRelation>, StatusOfRelationRepository>();
+            builder.Services.AddScoped<IBaseRepository<Subject>, SubjectRepository>();
+            builder.Services.AddScoped<IBaseRepository<TeacherStudent>, TeacherStudentRepository>();
+            builder.Services.AddScoped<IBaseRepository<TeacherSubject>, TeacherSubjectRepository>();
+
+
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IAccountService, AccountService>();
+            builder.Services.AddScoped<ITeacherService, TeacherService>();
+            builder.Services.AddScoped<IStudentService, StudentService>();
 
             var app = builder.Build();
 

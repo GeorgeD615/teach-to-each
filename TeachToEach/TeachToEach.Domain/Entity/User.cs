@@ -32,7 +32,6 @@ namespace TeachToEach.Domain.Entity
 
         public List<TeacherStudent> relation_as_student { get; set; }
         public List<TeacherStudent> relation_as_teacher { get; set; }
-
         public List<TeacherSubject> subjects_for_teacher { get; set; }
 
 

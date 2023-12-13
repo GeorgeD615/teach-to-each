@@ -1,25 +1,45 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TeachToEach.Service.Implementations;
+using TeachToEach.Service.Interfaces;
 
 namespace TeachToEach.Controllers
 {
     public class StudentController : Controller
     {
-        public IActionResult Index()
+        private readonly IStudentService _studentService;
+
+        public StudentController(IStudentService studentService)
         {
-            return View();
+            _studentService = studentService;
         }
+
         public async Task<IActionResult> Student()
         {
-            return View();
+            var response = await _studentService.GetStudentByLogin(User.Identity.Name);
+            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return View(response.Data);
+            }
+            return RedirectToAction("Error");
         }
         public async Task<IActionResult> GetTeachers()
         {
-            return View();
+            var response = await _studentService.GetTeachers(User.Identity.Name);
+            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return View(response.Data);
+            }
+            return RedirectToAction("Error");
         }
 
         public async Task<IActionResult> GetHWtoStudent()
         {
-            return View();
+            var response = await _studentService.GetHomewoks(User.Identity.Name);
+            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return View(response.Data);
+            }
+            return RedirectToAction("Error");
         }
     }
 }

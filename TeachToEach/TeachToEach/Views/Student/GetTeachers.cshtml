@@ -1,4 +1,5 @@
-﻿
+﻿@using TeachToEach.Domain.ViewModels.Student
+@model IEnumerable<StudentTeacherInfoViewModel>
 @{
     ViewData["Title"] = "GetTeachers";
 }
@@ -45,9 +46,30 @@
 
                     <div class="tab-content" id="content-1">
                         <p>Здесь выводится список из БД</p>
+                        @if(Model != null)
+                        {
+                            @foreach (var item in Model.Where(s => s.status_id == s.aprove_id))
+                            {
+                                <p>@item.Subject.SubjectName  @item.Teacher.first_name  @item.Teacher.last_name</p>
+                            }
+                        }
                     </div>
                     <div class="tab-content" id="content-2">
                         <p>Здесь выводится список из БД</p>
+                        @if (Model != null)
+                        {
+                            @foreach (var item in Model.Where(s => s.status_id != s.aprove_id))
+                            {
+                                @if(item.status_id == item.reject_id)
+                                {
+                                    <p>Отказано</p>
+                                }else
+                                {
+                                    <p>Ожидание</p>
+                                }
+                                <p>@item.Subject.SubjectName  @item.Teacher.first_name  @item.Teacher.last_name</p>
+                            }
+                        }
                     </div>
                     <div class="tab-content" id="content-3">
                         <form id="form-search-teacher">
