@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\images\\defolt-avatar.png",
+      "PackagePath": "staticwebassets\\images\\defolt-avatar.png"
+    },
+    {
+      "Id": "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\images\\main-logo.png",
+      "PackagePath": "staticwebassets\\images\\main-logo.png"
+    },
+    {
       "Id": "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

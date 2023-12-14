@@ -48,7 +48,50 @@ namespace TeachToEach.Service.Implementations
             _reject_id = status.FirstOrDefault(st => st.name == "Заявка отклонена").id;
         }
 
+        public async Task<IBaseResponse<bool>> CreateRequest(string student_login, string teacher_login, string subject_name)
+        {
+            try
+            {
+                var student = _userRepository.GetAll().FirstOrDefault(u => u.login == student_login);
+                var teacher = _userRepository.GetAll().FirstOrDefault(u => u.login == teacher_login);
+                var subjcet = _subjectRepository.GetAll().FirstOrDefault(s => s.name == subject_name);
 
+                if(student == null || teacher == null || subjcet == null)
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        StatusCode = Domain.Enum.StatusCode.UserNotFound,
+                        Description = "Запрос не отправлен",
+                        Data = false
+                    };
+                }
+
+
+                await _teacherStudentRepository.Create(new TeacherStudent()
+                {
+                    student_id = student.id,
+                    teacher_id = teacher.id,
+                    subject_id = subjcet.id,
+                    status_id = _request_id
+                });
+
+                return new BaseResponse<bool>()
+                {
+                    Data = true,
+                    StatusCode = Domain.Enum.StatusCode.OK,
+                    Description = "Запрос отправлен"
+                };
+
+            }catch (Exception ex)
+            {
+                return new BaseResponse<bool>()
+                {
+                    Data = false,
+                    StatusCode = Domain.Enum.StatusCode.InternalServerError,
+                    Description = ex.Message
+                };
+            }
+        }
         public async Task<IBaseResponse<IEnumerable<StudentHomeworkViewModel>>> GetHomewoks(string login)
         {
             try

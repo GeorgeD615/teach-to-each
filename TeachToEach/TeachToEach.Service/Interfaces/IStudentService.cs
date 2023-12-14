@@ -14,5 +14,6 @@ namespace TeachToEach.Service.Interfaces
         Task<IBaseResponse<StudentProfileViewModel>> GetStudentByLogin(string login);
         Task<IBaseResponse<IEnumerable<StudentTeacherInfoViewModel>>> GetTeachers(string login);
         Task<IBaseResponse<IEnumerable<StudentHomeworkViewModel>>> GetHomewoks(string login);
+        Task<IBaseResponse<bool>> CreateRequest(string student_login, string teacher_login, string subject_name);
     }
 }
