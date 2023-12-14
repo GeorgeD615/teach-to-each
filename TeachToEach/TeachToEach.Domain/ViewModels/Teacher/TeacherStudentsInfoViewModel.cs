@@ -12,6 +12,8 @@ namespace TeachToEach.Domain.ViewModels.Teacher
     {
         public UserViewModel Student { get; set; }
         public SubjectViewModel Subject { get; set; }
+        
+        public int relation_id { get; set; }
         public int status_id { get; set; }
         public int aprove_id { get; set; }
         public int request_id { get; set; }

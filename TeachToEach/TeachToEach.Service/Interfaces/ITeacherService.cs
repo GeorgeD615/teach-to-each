@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TeachToEach.Domain.Response;
+using TeachToEach.Domain.ViewModels;
 using TeachToEach.Domain.ViewModels.Teacher;
 using TeachToEach.Domain.ViewModels.User;
 
@@ -14,5 +15,8 @@ namespace TeachToEach.Service.Interfaces
         Task<IBaseResponse<TeacherProfileViewModel>> GetTeacherByLogin(string login);
         Task<IBaseResponse<IEnumerable<TeacherStudentsInfoViewModel>>> GetStudents(string login);
         Task<IBaseResponse<IEnumerable<TeacherHomeworkViewModel>>> GetHomewoks (string login);
+        Task<IBaseResponse<bool>> ResponseRequest(int relation_id, int status_id);
+        Task<IBaseResponse<bool>> CreateHomework(HomeworkCreateViewModel homeworkCreateViewModel);
+        Task<IBaseResponse<bool>> UpdateHomework(HomeworkUpdateViewModel homeworkUpdateViewModel);
     }
 }

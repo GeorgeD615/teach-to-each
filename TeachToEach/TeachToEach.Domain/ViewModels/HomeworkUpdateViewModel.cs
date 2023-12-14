@@ -1,17 +1,16 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeachToEach.Domain.Entity;
 
-namespace TeachToEach.Domain.Entity
+namespace TeachToEach.Domain.ViewModels
 {
-    public class Homework
+    public class HomeworkUpdateViewModel
     {
         public int id { get; set; }
         public int relation_id { get; set; }
-        public TeacherStudent relation { get; set; }
         public string description { get; set; }
         public DateTime deadline { get; set; }
         public DateTime solution_time { get; set; }

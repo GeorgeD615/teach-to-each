@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TeachToEach.DAL.Interfaces;
 using TeachToEach.DAL.Repositories;
 using TeachToEach.Domain.Entity;
+using TeachToEach.Domain.Enum;
 using TeachToEach.Domain.Response;
 using TeachToEach.Domain.ViewModels;
 using TeachToEach.Domain.ViewModels.Teacher;
@@ -46,6 +47,48 @@ namespace TeachToEach.Service.Implementations
             _aprove_id = status.FirstOrDefault(st => st.name == "Заявка принята").id;
             _request_id = status.FirstOrDefault(st => st.name == "Заявка на рассмотрении").id;
             _reject_id = status.FirstOrDefault(st => st.name == "Заявка отклонена").id;
+        }
+
+        public async Task<IBaseResponse<bool>> CreateHomework(HomeworkCreateViewModel homeworkCreateViewModel)
+        {
+            try
+            {
+                var homework = new Homework()
+                {
+                    relation_id = homeworkCreateViewModel.relation_id,
+                    description = homeworkCreateViewModel.description,
+                    deadline = homeworkCreateViewModel.deadline
+                };
+                
+                bool result = await _homeworkRepository.Create(homework);
+
+                if (result)
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        Data = result,
+                        StatusCode = StatusCode.OK,
+                        Description = "Домашнее задание добавлено"
+                    };
+                }
+                else
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        Data = result,
+                        StatusCode = StatusCode.HomeworkNotCreated,
+                        Description = "Домашнее задание не добавлено"
+                    };
+                }
+            }catch (Exception ex)
+            {
+                return new BaseResponse<bool>()
+                {
+                    Data = false,
+                    StatusCode = StatusCode.InternalServerError,
+                    Description = ex.Message
+                };
+            }
         }
 
         public async Task<IBaseResponse<IEnumerable<TeacherHomeworkViewModel>>> GetHomewoks(string login)
@@ -92,7 +135,8 @@ namespace TeachToEach.Service.Implementations
                         SolutionTime = homework.solution_time,
                         IsCompleted = homework.is_completed,
                         Solution = homework.solution,
-                        TeacherComment = homework.teacher_comment
+                        TeacherComment = homework.teacher_comment,
+                        homework_id = homework.id
                     }).ToList();
 
                 return new BaseResponse<IEnumerable<TeacherHomeworkViewModel>>()
@@ -147,6 +191,7 @@ namespace TeachToEach.Service.Implementations
                                             SubjectName = subjects.FirstOrDefault(s => s.id == relation.subject_id).name
                                         },
                                         status_id = relation.status_id,
+                                        relation_id = relation.id,
 
                                         aprove_id = _aprove_id,
                                         reject_id = _reject_id,
@@ -217,6 +262,84 @@ namespace TeachToEach.Service.Implementations
             }
         }
 
-        
+        public async Task<IBaseResponse<bool>> ResponseRequest(int relation_id, int status_id)
+        {
+            try
+            {
+                var relation = await _teacherStudentRepository.Get(relation_id);
+                if(relation == null)
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        Data = false,
+                        StatusCode = Domain.Enum.StatusCode.UserNotFound,
+                        Description = "Отношение не найдено"
+                    };
+                }
+
+                relation.status_id = status_id;
+
+                bool result = await _teacherStudentRepository.Edit(relation);
+
+                return new BaseResponse<bool>()
+                {
+                    Data = result,
+                    StatusCode = Domain.Enum.StatusCode.OK,
+                    Description = "Статус изменён"
+                };
+                
+            }catch (Exception ex)
+            {
+                return new BaseResponse<bool>()
+                {
+                    Data = false,
+                    StatusCode = Domain.Enum.StatusCode.InternalServerError,
+                    Description = ex.Message
+                };
+            }
+        }
+
+        public async Task<IBaseResponse<bool>> UpdateHomework(HomeworkUpdateViewModel homeworkUpdateViewModel)
+        {
+            try
+            {
+                var homework = await _homeworkRepository.Get(homeworkUpdateViewModel.id);
+
+                homework.description = homeworkUpdateViewModel.description;
+                homework.deadline = homeworkUpdateViewModel.deadline;
+                homework.is_completed = homeworkUpdateViewModel.is_completed;
+                homework.teacher_comment = homeworkUpdateViewModel.teacher_comment;
+
+                bool result = await _homeworkRepository.Edit(homework);
+
+                if (result)
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        Data = result,
+                        StatusCode = StatusCode.OK,
+                        Description = "Домашнее задание обновлено"
+                    };
+                }
+                else
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        Data = result,
+                        StatusCode = StatusCode.HomeworkNotCreated,
+                        Description = "Домашнее задание не обновлено"
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool>()
+                {
+                    Data = false,
+                    StatusCode = StatusCode.InternalServerError,
+                    Description = ex.Message
+                };
+            }
+        }
     }
 }
