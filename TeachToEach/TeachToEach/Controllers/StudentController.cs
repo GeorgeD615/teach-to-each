@@ -41,5 +41,15 @@ namespace TeachToEach.Controllers
             }
             return RedirectToAction("Error");
         }
+
+        public async Task<IActionResult> FindTeacher()
+        {
+            var response = await _studentService.GetHomewoks(User.Identity.Name);
+            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return View(response.Data);
+            }
+            return RedirectToAction("Error");
+        }
     }
 }
