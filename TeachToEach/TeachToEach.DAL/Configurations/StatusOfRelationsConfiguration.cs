@@ -14,7 +14,7 @@ namespace TeachToEach.DAL.Configurations
         public void Configure(EntityTypeBuilder<StatusOfRelation> builder)
         {
             builder.Property(r => r.id).ValueGeneratedOnAdd().HasColumnName("status_id");
-            builder.Property(r => r.name).HasColumnType("character varying(32)").HasColumnName("name");
+            builder.Property(r => r.name).HasColumnType("character varying(32)").HasColumnName("name").IsRequired();
 
             builder.HasData(new StatusOfRelation()
             {

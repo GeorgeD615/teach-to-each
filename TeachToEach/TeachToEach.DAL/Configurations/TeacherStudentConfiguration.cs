@@ -22,6 +22,103 @@ namespace TeachToEach.DAL.Configurations
             builder.HasOne(r => r.rating).WithOne(r => r.relation).HasForeignKey<Rating>(r => r.relation_id);
 
             builder.HasCheckConstraint("teacher_id", "teacher_id <> student_id");
+
+            builder.HasData(new TeacherStudent()
+            {
+                id = 1,
+                teacher_id = 1,
+                student_id = 3,
+                subject_id = 2,
+                status_id = 2
+            },
+            new TeacherStudent()
+            {
+                id = 2,
+                teacher_id = 1,
+                student_id = 4,
+                subject_id = 2,
+                status_id = 2
+            },
+            new TeacherStudent()
+            {
+                id = 3,
+                teacher_id = 1,
+                student_id = 8,
+                subject_id = 1,
+                status_id = 1
+            },
+            new TeacherStudent()
+            {
+                id = 4,
+                teacher_id = 2,
+                student_id = 9,
+                subject_id = 5,
+                status_id = 2
+            },
+            new TeacherStudent()
+            {
+                id = 5,
+                teacher_id = 2,
+                student_id = 10,
+                subject_id = 5,
+                status_id = 2
+            },
+            new TeacherStudent()
+            {
+                id = 6,
+                teacher_id = 2,
+                student_id = 8,
+                subject_id = 4,
+                status_id = 2
+            },
+            new TeacherStudent()
+            {
+                id = 7,
+                teacher_id = 2,
+                student_id = 1,
+                subject_id = 4,
+                status_id = 1
+            },
+            new TeacherStudent()
+            {
+                id = 8,
+                teacher_id = 3,
+                student_id = 1,
+                subject_id = 10,
+                status_id = 2
+            },
+            new TeacherStudent()
+            {
+                id = 9,
+                teacher_id = 3,
+                student_id = 5,
+                subject_id = 10,
+                status_id = 2
+            },
+            new TeacherStudent()
+            {
+                id = 10,
+                teacher_id = 3,
+                student_id = 6,
+                subject_id = 10,
+                status_id = 1
+            },
+            new TeacherStudent()
+            {
+                id = 11,
+                teacher_id = 8,
+                student_id = 7,
+                subject_id = 3,
+                status_id = 2
+            },
+            new TeacherStudent()
+            {
+                id = 12,
+                teacher_id = 8,
+                student_id = 6,
+                subject_id = 3,
+                status_id = 2
+            });
         }
     }
 }

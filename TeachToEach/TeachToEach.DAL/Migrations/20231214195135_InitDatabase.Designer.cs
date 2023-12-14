@@ -12,8 +12,8 @@ using TeachToEach.DAL;
 namespace TeachToEach.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231211135346_InitDataBase")]
-    partial class InitDataBase
+    [Migration("20231214195135_InitDatabase")]
+    partial class InitDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,7 +33,7 @@ namespace TeachToEach.DAL.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
 
-                    b.Property<DateTime>("deadline")
+                    b.Property<DateTime?>("deadline")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("deadline");
 
@@ -55,7 +55,7 @@ namespace TeachToEach.DAL.Migrations
                         .HasColumnType("text")
                         .HasColumnName("solution");
 
-                    b.Property<DateTime>("solution_time")
+                    b.Property<DateTime?>("solution_time")
                         .HasColumnType("timestamp without time zone")
                         .HasColumnName("solution_time");
 
@@ -68,6 +68,56 @@ namespace TeachToEach.DAL.Migrations
                     b.HasIndex("relation_id");
 
                     b.ToTable("Homeworks");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            deadline = new DateTime(2024, 2, 24, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            description = "Прочитать Доктор Живаго",
+                            is_completed = false,
+                            relation_id = 1
+                        },
+                        new
+                        {
+                            id = 2,
+                            deadline = new DateTime(2024, 2, 24, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            description = "Прочитать Анну Каренину",
+                            is_completed = false,
+                            relation_id = 1
+                        },
+                        new
+                        {
+                            id = 3,
+                            deadline = new DateTime(2024, 2, 24, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            description = "Прочитать Доктор Живаго",
+                            is_completed = false,
+                            relation_id = 2
+                        },
+                        new
+                        {
+                            id = 4,
+                            deadline = new DateTime(2024, 2, 24, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            description = "Прочитать Анну Каренину",
+                            is_completed = false,
+                            relation_id = 2
+                        },
+                        new
+                        {
+                            id = 5,
+                            deadline = new DateTime(2024, 3, 15, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            description = "Параграф 13(Реформа Столыпина)",
+                            is_completed = false,
+                            relation_id = 6
+                        },
+                        new
+                        {
+                            id = 6,
+                            deadline = new DateTime(2024, 3, 15, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            description = "Параграф 13(Реформа Столыпина)",
+                            is_completed = false,
+                            relation_id = 7
+                        });
                 });
 
             modelBuilder.Entity("TeachToEach.Domain.Entity.Rating", b =>
@@ -224,6 +274,26 @@ namespace TeachToEach.DAL.Migrations
                         {
                             id = 6,
                             name = "Английский язык"
+                        },
+                        new
+                        {
+                            id = 7,
+                            name = "Информатика"
+                        },
+                        new
+                        {
+                            id = 8,
+                            name = "Музыка"
+                        },
+                        new
+                        {
+                            id = 9,
+                            name = "Физика"
+                        },
+                        new
+                        {
+                            id = 10,
+                            name = "Рисование"
                         });
                 });
 
@@ -261,6 +331,104 @@ namespace TeachToEach.DAL.Migrations
                     b.ToTable("TeacherStudentRelation");
 
                     b.HasCheckConstraint("teacher_id", "teacher_id <> student_id");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            status_id = 2,
+                            student_id = 3,
+                            subject_id = 2,
+                            teacher_id = 1
+                        },
+                        new
+                        {
+                            id = 2,
+                            status_id = 2,
+                            student_id = 4,
+                            subject_id = 2,
+                            teacher_id = 1
+                        },
+                        new
+                        {
+                            id = 3,
+                            status_id = 1,
+                            student_id = 8,
+                            subject_id = 1,
+                            teacher_id = 1
+                        },
+                        new
+                        {
+                            id = 4,
+                            status_id = 2,
+                            student_id = 9,
+                            subject_id = 5,
+                            teacher_id = 2
+                        },
+                        new
+                        {
+                            id = 5,
+                            status_id = 2,
+                            student_id = 10,
+                            subject_id = 5,
+                            teacher_id = 2
+                        },
+                        new
+                        {
+                            id = 6,
+                            status_id = 2,
+                            student_id = 8,
+                            subject_id = 4,
+                            teacher_id = 2
+                        },
+                        new
+                        {
+                            id = 7,
+                            status_id = 1,
+                            student_id = 1,
+                            subject_id = 4,
+                            teacher_id = 2
+                        },
+                        new
+                        {
+                            id = 8,
+                            status_id = 2,
+                            student_id = 1,
+                            subject_id = 10,
+                            teacher_id = 3
+                        },
+                        new
+                        {
+                            id = 9,
+                            status_id = 2,
+                            student_id = 5,
+                            subject_id = 10,
+                            teacher_id = 3
+                        },
+                        new
+                        {
+                            id = 10,
+                            status_id = 1,
+                            student_id = 6,
+                            subject_id = 10,
+                            teacher_id = 3
+                        },
+                        new
+                        {
+                            id = 11,
+                            status_id = 2,
+                            student_id = 7,
+                            subject_id = 3,
+                            teacher_id = 8
+                        },
+                        new
+                        {
+                            id = 12,
+                            status_id = 2,
+                            student_id = 6,
+                            subject_id = 3,
+                            teacher_id = 8
+                        });
                 });
 
             modelBuilder.Entity("TeachToEach.Domain.Entity.TeacherSubject", b =>
@@ -285,6 +453,128 @@ namespace TeachToEach.DAL.Migrations
                     b.HasIndex("teacher_id");
 
                     b.ToTable("TeacherSubjects");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            subject_id = 1,
+                            teacher_id = 1
+                        },
+                        new
+                        {
+                            id = 2,
+                            subject_id = 2,
+                            teacher_id = 1
+                        },
+                        new
+                        {
+                            id = 3,
+                            subject_id = 1,
+                            teacher_id = 2
+                        },
+                        new
+                        {
+                            id = 4,
+                            subject_id = 4,
+                            teacher_id = 2
+                        },
+                        new
+                        {
+                            id = 5,
+                            subject_id = 5,
+                            teacher_id = 2
+                        },
+                        new
+                        {
+                            id = 6,
+                            subject_id = 1,
+                            teacher_id = 3
+                        },
+                        new
+                        {
+                            id = 7,
+                            subject_id = 10,
+                            teacher_id = 3
+                        },
+                        new
+                        {
+                            id = 8,
+                            subject_id = 6,
+                            teacher_id = 4
+                        },
+                        new
+                        {
+                            id = 9,
+                            subject_id = 7,
+                            teacher_id = 4
+                        },
+                        new
+                        {
+                            id = 10,
+                            subject_id = 2,
+                            teacher_id = 5
+                        },
+                        new
+                        {
+                            id = 11,
+                            subject_id = 6,
+                            teacher_id = 5
+                        },
+                        new
+                        {
+                            id = 12,
+                            subject_id = 8,
+                            teacher_id = 6
+                        },
+                        new
+                        {
+                            id = 13,
+                            subject_id = 5,
+                            teacher_id = 6
+                        },
+                        new
+                        {
+                            id = 14,
+                            subject_id = 6,
+                            teacher_id = 7
+                        },
+                        new
+                        {
+                            id = 15,
+                            subject_id = 4,
+                            teacher_id = 7
+                        },
+                        new
+                        {
+                            id = 16,
+                            subject_id = 3,
+                            teacher_id = 8
+                        },
+                        new
+                        {
+                            id = 17,
+                            subject_id = 8,
+                            teacher_id = 9
+                        },
+                        new
+                        {
+                            id = 18,
+                            subject_id = 9,
+                            teacher_id = 9
+                        },
+                        new
+                        {
+                            id = 19,
+                            subject_id = 4,
+                            teacher_id = 7
+                        },
+                        new
+                        {
+                            id = 20,
+                            subject_id = 7,
+                            teacher_id = 10
+                        });
                 });
 
             modelBuilder.Entity("TeachToEach.Domain.Entity.User", b =>
@@ -301,7 +591,6 @@ namespace TeachToEach.DAL.Migrations
                         .HasColumnName("age");
 
                     b.Property<string>("email")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("email");
 
@@ -332,6 +621,9 @@ namespace TeachToEach.DAL.Migrations
 
                     b.HasKey("id");
 
+                    b.HasIndex("login")
+                        .IsUnique();
+
                     b.HasIndex("role_id");
 
                     b.ToTable("Users");
@@ -347,8 +639,104 @@ namespace TeachToEach.DAL.Migrations
                             first_name = "Георгий",
                             last_name = "Давлятшин",
                             login = "davlik2003",
-                            password = "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+                            password = "1f451538ece752d6f41d727e536bb2686663ee6054caef362a5f588b3d0a35c0",
                             role_id = 3
+                        },
+                        new
+                        {
+                            id = 2,
+                            age = (short)20,
+                            email = "p.antropova@gmail.com",
+                            first_name = "Полина",
+                            last_name = "Антропова",
+                            login = "poliantr",
+                            password = "270ec79c4c409fca99c98a9f6ef17b738e67df8c19d9e53ac451980ba65a368d",
+                            role_id = 3
+                        },
+                        new
+                        {
+                            id = 3,
+                            age = (short)20,
+                            email = "nassmir@gmail.com",
+                            first_name = "Настасья",
+                            last_name = "Смирнягина",
+                            login = "nassmir",
+                            password = "f16c5b2208b0fc5831f83c66c11dd2aaec0c0c44237313e403c360b0dd797002",
+                            role_id = 1
+                        },
+                        new
+                        {
+                            id = 4,
+                            age = (short)20,
+                            first_name = "Егор",
+                            last_name = "Воронцов",
+                            login = "c0nda",
+                            password = "b12286d98bb60853e28b1db6a10b7c483b538751d8ea4b9ec972b353a1dbb75a",
+                            role_id = 1
+                        },
+                        new
+                        {
+                            id = 5,
+                            age = (short)25,
+                            email = "a.bakirova@gmail.com",
+                            first_name = "Анна",
+                            last_name = "Бакирова",
+                            login = "bakirova",
+                            password = "5b833e49b37d591a7a97c85b41786ddac9f2bc193c5cab13fbed87d4e938a187",
+                            role_id = 1
+                        },
+                        new
+                        {
+                            id = 6,
+                            age = (short)20,
+                            first_name = "Никита",
+                            last_name = "Варыгин",
+                            login = "varigin",
+                            password = "59b7c4cfdf4ea1b5c9cb040b66e1544490c669c217052646e3a21c759b1ed4a7",
+                            role_id = 1
+                        },
+                        new
+                        {
+                            id = 7,
+                            age = (short)20,
+                            email = "micapic@gmail.com",
+                            first_name = "Михаэль",
+                            last_name = "Павлов",
+                            login = "micapic",
+                            password = "3175da04d4564876b093f48d5860c9f0a5feadf75fadfbbf792d38e912983af7",
+                            role_id = 1
+                        },
+                        new
+                        {
+                            id = 8,
+                            age = (short)20,
+                            first_name = "Мария",
+                            last_name = "Грибанова",
+                            login = "mgrib",
+                            password = "87ece3956328a95b91da363bf013fbccfb6da07aff6c3446b08df5cb1dfff582",
+                            role_id = 1
+                        },
+                        new
+                        {
+                            id = 9,
+                            age = (short)24,
+                            email = "e.maksimova@gmail.com",
+                            first_name = "Екатерина",
+                            last_name = "Максимова",
+                            login = "ekatmaksim",
+                            password = "9e83dc23e9c2296c6e736a57f4a5264bc2324f4f148ede5ed23fa72855ee2bbc",
+                            role_id = 1
+                        },
+                        new
+                        {
+                            id = 10,
+                            age = (short)40,
+                            email = "maksikov77@gmail.com",
+                            first_name = "Максим",
+                            last_name = "Коровкин",
+                            login = "77max",
+                            password = "511da19947dac274ec11e10bd2fd5367e74b0949a4599883f06f183ead721dab",
+                            role_id = 1
                         });
                 });
 

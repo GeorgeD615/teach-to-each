@@ -13,8 +13,8 @@ namespace TeachToEach.Domain.ViewModels.Teacher
         public UserViewModel Student { get; set; }
         public SubjectViewModel Subject { get; set; }
         public string Description { get; set; }
-        public DateTime Deadline { get; set; }
-        public DateTime SolutionTime { get; set; }
+        public DateTime? Deadline { get; set; }
+        public DateTime? SolutionTime { get; set; }
         public bool IsCompleted { get; set; }
         public string Solution { get; set; }
         public string TeacherComment { get; set; }

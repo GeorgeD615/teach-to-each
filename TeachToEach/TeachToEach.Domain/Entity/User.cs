@@ -20,7 +20,7 @@ namespace TeachToEach.Domain.Entity
 
         public int age { get; set; }
 
-        public string email { get; set; }
+        public string? email { get; set; }
 
         public int role_id { get; set; }
 
