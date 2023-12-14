@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace TeachToEach.DAL.Migrations
 {
-    public partial class InitDataBase : Migration
+    public partial class InitDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -58,7 +58,7 @@ namespace TeachToEach.DAL.Migrations
                     first_name = table.Column<string>(type: "character varying(32)", maxLength: 32, nullable: false),
                     last_name = table.Column<string>(type: "character varying(32)", maxLength: 32, nullable: false),
                     age = table.Column<short>(type: "smallint", nullable: false),
-                    email = table.Column<string>(type: "text", nullable: false),
+                    email = table.Column<string>(type: "text", nullable: true),
                     role_id = table.Column<int>(type: "integer", nullable: false),
                     password = table.Column<string>(type: "text", nullable: false),
                     login = table.Column<string>(type: "character varying(32)", nullable: false)
@@ -150,8 +150,8 @@ namespace TeachToEach.DAL.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     relation_id = table.Column<int>(type: "integer", nullable: false),
                     description = table.Column<string>(type: "text", maxLength: 1000, nullable: false),
-                    deadline = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    solution_time = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    deadline = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
+                    solution_time = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
                     is_completed = table.Column<bool>(type: "bool", nullable: false, defaultValue: false),
                     solution = table.Column<string>(type: "text", nullable: true),
                     teacher_comment = table.Column<string>(type: "text", nullable: true)
@@ -219,13 +219,88 @@ namespace TeachToEach.DAL.Migrations
                     { 3, "Биология" },
                     { 4, "История" },
                     { 5, "Обществознание" },
-                    { 6, "Английский язык" }
+                    { 6, "Английский язык" },
+                    { 7, "Информатика" },
+                    { 8, "Музыка" },
+                    { 9, "Физика" },
+                    { 10, "Рисование" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "user_id", "age", "email", "first_name", "last_name", "login", "password", "role_id" },
-                values: new object[] { 1, (short)20, "g.davlyatshin@gmail.com", "Георгий", "Давлятшин", "davlik2003", "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92", 3 });
+                values: new object[,]
+                {
+                    { 1, (short)20, "g.davlyatshin@gmail.com", "Георгий", "Давлятшин", "davlik2003", "1f451538ece752d6f41d727e536bb2686663ee6054caef362a5f588b3d0a35c0", 3 },
+                    { 2, (short)20, "p.antropova@gmail.com", "Полина", "Антропова", "poliantr", "270ec79c4c409fca99c98a9f6ef17b738e67df8c19d9e53ac451980ba65a368d", 3 },
+                    { 3, (short)20, "nassmir@gmail.com", "Настасья", "Смирнягина", "nassmir", "f16c5b2208b0fc5831f83c66c11dd2aaec0c0c44237313e403c360b0dd797002", 1 },
+                    { 4, (short)20, null, "Егор", "Воронцов", "c0nda", "b12286d98bb60853e28b1db6a10b7c483b538751d8ea4b9ec972b353a1dbb75a", 1 },
+                    { 5, (short)25, "a.bakirova@gmail.com", "Анна", "Бакирова", "bakirova", "5b833e49b37d591a7a97c85b41786ddac9f2bc193c5cab13fbed87d4e938a187", 1 },
+                    { 6, (short)20, null, "Никита", "Варыгин", "varigin", "59b7c4cfdf4ea1b5c9cb040b66e1544490c669c217052646e3a21c759b1ed4a7", 1 },
+                    { 7, (short)20, "micapic@gmail.com", "Михаэль", "Павлов", "micapic", "3175da04d4564876b093f48d5860c9f0a5feadf75fadfbbf792d38e912983af7", 1 },
+                    { 8, (short)20, null, "Мария", "Грибанова", "mgrib", "87ece3956328a95b91da363bf013fbccfb6da07aff6c3446b08df5cb1dfff582", 1 },
+                    { 9, (short)24, "e.maksimova@gmail.com", "Екатерина", "Максимова", "ekatmaksim", "9e83dc23e9c2296c6e736a57f4a5264bc2324f4f148ede5ed23fa72855ee2bbc", 1 },
+                    { 10, (short)40, "maksikov77@gmail.com", "Максим", "Коровкин", "77max", "511da19947dac274ec11e10bd2fd5367e74b0949a4599883f06f183ead721dab", 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "TeacherStudentRelation",
+                columns: new[] { "relation_id", "status_id", "student_id", "subject_id", "teacher_id" },
+                values: new object[,]
+                {
+                    { 1, 2, 3, 2, 1 },
+                    { 2, 2, 4, 2, 1 },
+                    { 3, 1, 8, 1, 1 },
+                    { 4, 2, 9, 5, 2 },
+                    { 5, 2, 10, 5, 2 },
+                    { 6, 2, 8, 4, 2 },
+                    { 7, 1, 1, 4, 2 },
+                    { 8, 2, 1, 10, 3 },
+                    { 9, 2, 5, 10, 3 },
+                    { 10, 1, 6, 10, 3 },
+                    { 11, 2, 7, 3, 8 },
+                    { 12, 2, 6, 3, 8 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "TeacherSubjects",
+                columns: new[] { "relation_id", "subject_id", "teacher_id" },
+                values: new object[,]
+                {
+                    { 1, 1, 1 },
+                    { 2, 2, 1 },
+                    { 3, 1, 2 },
+                    { 4, 4, 2 },
+                    { 5, 5, 2 },
+                    { 6, 1, 3 },
+                    { 7, 10, 3 },
+                    { 8, 6, 4 },
+                    { 9, 7, 4 },
+                    { 10, 2, 5 },
+                    { 11, 6, 5 },
+                    { 12, 8, 6 },
+                    { 13, 5, 6 },
+                    { 14, 6, 7 },
+                    { 15, 4, 7 },
+                    { 16, 3, 8 },
+                    { 17, 8, 9 },
+                    { 18, 9, 9 },
+                    { 19, 4, 7 },
+                    { 20, 7, 10 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Homeworks",
+                columns: new[] { "homework_id", "deadline", "description", "relation_id", "solution", "solution_time", "teacher_comment" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2024, 2, 24, 12, 0, 0, 0, DateTimeKind.Unspecified), "Прочитать Доктор Живаго", 1, null, null, null },
+                    { 2, new DateTime(2024, 2, 24, 12, 0, 0, 0, DateTimeKind.Unspecified), "Прочитать Анну Каренину", 1, null, null, null },
+                    { 3, new DateTime(2024, 2, 24, 12, 0, 0, 0, DateTimeKind.Unspecified), "Прочитать Доктор Живаго", 2, null, null, null },
+                    { 4, new DateTime(2024, 2, 24, 12, 0, 0, 0, DateTimeKind.Unspecified), "Прочитать Анну Каренину", 2, null, null, null },
+                    { 5, new DateTime(2024, 3, 15, 12, 0, 0, 0, DateTimeKind.Unspecified), "Параграф 13(Реформа Столыпина)", 6, null, null, null },
+                    { 6, new DateTime(2024, 3, 15, 12, 0, 0, 0, DateTimeKind.Unspecified), "Параграф 13(Реформа Столыпина)", 7, null, null, null }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Homeworks_relation_id",
@@ -267,6 +342,12 @@ namespace TeachToEach.DAL.Migrations
                 name: "IX_TeacherSubjects_teacher_id",
                 table: "TeacherSubjects",
                 column: "teacher_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Users_login",
+                table: "Users",
+                column: "login",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_role_id",

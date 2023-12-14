@@ -44,6 +44,23 @@ namespace TeachToEach.DAL.Configurations
             {
                 id = 6,
                 name = "Английский язык",
+            }, new Subject()
+            {
+                id = 7,
+                name = "Информатика",
+            }, new Subject()
+            {
+                id = 8,
+                name = "Музыка",
+            }, new Subject()
+            {
+                id = 9,
+                name = "Физика",
+            },
+            new Subject()
+            {
+                id = 10,
+                name = "Рисование",
             });
         }
     }
