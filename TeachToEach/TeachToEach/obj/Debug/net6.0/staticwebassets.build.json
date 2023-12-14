@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8pLAFs0obY0OINgEM8AQKJrIbyYsKvuKjYP/fLWlFS8=",
+  "Hash": "yJlo1wd/HqkjMuWbP5m5BA5YZTweg+2kRqVWAP8edq0=",
   "Source": "TeachToEach",
   "BasePath": "_content/TeachToEach",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\images\\defolt-avatar.png",
+      "SourceId": "TeachToEach",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\",
+      "BasePath": "_content/TeachToEach",
+      "RelativePath": "images/defolt-avatar.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\defolt-avatar.png"
+    },
+    {
+      "Identity": "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\images\\main-logo.png",
+      "SourceId": "TeachToEach",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\",
+      "BasePath": "_content/TeachToEach",
+      "RelativePath": "images/main-logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\main-logo.png"
     },
     {
       "Identity": "C:\\Users\\OMEN\\source\\repos\\teach-to-each\\TeachToEach\\TeachToEach\\wwwroot\\js\\site.js",
