@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 using TeachToEach.DAL.Interfaces;
 using TeachToEach.Domain.Entity;
+using TeachToEach.Domain.Enum;
 using TeachToEach.Domain.Response;
 using TeachToEach.Domain.ViewModels;
 using TeachToEach.Domain.ViewModels.Student;
@@ -92,6 +94,61 @@ namespace TeachToEach.Service.Implementations
                 };
             }
         }
+        public async Task<IBaseResponse<IEnumerable<TeacherProfileViewModel>>> FindTeacher(TeacherFindViewModel teacherFindViewModel)
+        {
+            try
+            {
+                var subjects = _subjectRepository.GetAll();
+                var a = _teacherSubjectRepository.GetAll();
+                var teacher_subject = a.Join(subjects, 
+                    a => a.teacher_id, 
+                    s => s.id, 
+                    (t, s) => new { tId = t.teacher_id, Subject = s});
+
+                var teachers = _userRepository.GetAll();
+
+                if (teacherFindViewModel.first_name != null)
+                    teachers = teachers.Where(t => t.first_name == teacherFindViewModel.first_name);
+                if (teacherFindViewModel.last_name != null)
+                    teachers = teachers.Where(t => t.last_name == teacherFindViewModel.last_name);
+                if (teacherFindViewModel.login != null)
+                    teachers = teachers.Where(t => t.login == teacherFindViewModel.login);
+                if (teacherFindViewModel.subject != null)
+                    teacher_subject = teacher_subject.Where(r => r.Subject.name == teacherFindViewModel.subject);
+
+                teachers = teachers.Where(t => teacher_subject.Any(r => r.tId == t.id));
+
+
+                var result = teachers.Select(t => new TeacherProfileViewModel()
+                {
+                    FirstName = t.first_name,
+                    LastName = t.last_name,
+                    Login = t.login,
+                    Age = t.age,
+                    Subjects = teacher_subject.Where(r => r.tId == t.id).
+                                                Select(r =>new SubjectViewModel() { 
+                                                    SubjectName = r.Subject.name
+                                                }).ToList()
+                });
+
+
+                return new BaseResponse<IEnumerable<TeacherProfileViewModel>>()
+                {
+                    Data = result,
+                    StatusCode = Domain.Enum.StatusCode.OK,
+                    Description = $"Найдено {result.Count()} учителей"
+                };
+
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<IEnumerable<TeacherProfileViewModel>>()
+                {
+                    StatusCode = Domain.Enum.StatusCode.InternalServerError,
+                    Description = ex.Message
+                };
+            }
+        }
         public async Task<IBaseResponse<IEnumerable<StudentHomeworkViewModel>>> GetHomewoks(string login)
         {
             try
@@ -136,7 +193,8 @@ namespace TeachToEach.Service.Implementations
                         SolutionTime = homework.solution_time,
                         IsCompleted = homework.is_completed,
                         Solution = homework.solution,
-                        TeacherComment = homework.teacher_comment
+                        TeacherComment = homework.teacher_comment,
+                        homework_id = homework.id
                     }).ToList();
 
                 return new BaseResponse<IEnumerable<StudentHomeworkViewModel>>()
@@ -250,6 +308,46 @@ namespace TeachToEach.Service.Implementations
                 return new BaseResponse<IEnumerable<StudentTeacherInfoViewModel>>()
                 {
                     StatusCode = Domain.Enum.StatusCode.InternalServerError,
+                    Description = ex.Message
+                };
+            }
+        }
+        public async Task<IBaseResponse<bool>> UpdateHomework(HomeworkUpdateViewModel homeworkUpdateViewModel)
+        {
+            try
+            {
+                var homework = await _homeworkRepository.Get(homeworkUpdateViewModel.id);
+
+                homework.solution = homeworkUpdateViewModel.solution;
+                homework.solution_time = DateTime.Now;
+
+                bool result = await _homeworkRepository.Edit(homework);
+
+                if (result)
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        Data = result,
+                        StatusCode = StatusCode.OK,
+                        Description = "Домашнее задание обновлено"
+                    };
+                }
+                else
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        Data = result,
+                        StatusCode = StatusCode.HomeworkNotCreated,
+                        Description = "Домашнее задание не обновлено"
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool>()
+                {
+                    Data = false,
+                    StatusCode = StatusCode.InternalServerError,
                     Description = ex.Message
                 };
             }
