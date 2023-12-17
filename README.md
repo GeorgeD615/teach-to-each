@@ -1,9 +1,6 @@
 # Описание
 Образовательная платформа для индивидуальных занятий учителей и учеников 
 
-  <p> 
-Выполняют
-
 |Фамилия | Имя | Должность |
 | ------------------ | :---: | :-----------: | 
 | Давлятшин | Георгий | Backend|
@@ -13,98 +10,138 @@
 ## Наименование
 teach-to-each
 ## Предметная область
-Как пользователь платформы, вы можете выступать как учителем так и учеником. Каждый пользователь характеризуется фамилией, именем, возрастом, контактными данными(электронной почтой, номером телефона). Как учитель вы можете, добавлять себе новых учеников, для уже существующих учеников добавлять домашнее задание(описание д/з, срок сдачи, выполнено/невыполнено), добавлять roadmap(ссылка на интернет ресурс с roadmap). Как ученик вы можете добавлять себе учителей, добавлять выполненые дз(отметить дз выполненным, добавить решённое д/з), посмотреть составленную для него roadmap.
+Как пользователь платформы, вы можете выступать как учителем так и учеником. Каждый пользователь характеризуется фамилией, именем, возрастом, контактными данными(электронной почтой). Как учитель вы можете, добавлять себе новых учеников, для уже существующих учеников добавлять домашнее задание(описание д/з, срок сдачи, выполнено/невыполнено). Как ученик вы можете добавлять себе учителей, добавлять выполненые дз(отметить дз выполненным, добавить решённое д/з), добавить отзыв о преподавателе.
 # Данные
 
-_<details><summary><h3>users</h3></summary>_
+_<details><summary><h3>Users</h3></summary>_
   <p> 
 Все пользователи платформы
 
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
 | ------------------ | :---: | :-----------: | :--: | :----------------: |
-| user_id | int64 | >0, not null|  + | teacher_student   |
-| first_name| string | not null, len>0| | | |
-| last_name | string | not null, len>0| | |
+| user_id | int64 | >0, not null|  + | TeacherStudentRelation, TeacherSubjects   |
+| first_name| string | not null, len>0, len<=32| | | |
+| last_name | string | not null, len>0, len<=32| | |
 | age | int64 | not null| | |
-| contact_data | string | | | |
+| email | string | | | |
+| role_id | int64 | one of the Roles.role_id | | |
+| login | string | not null, len>0, len<32, unique| | |
+| password | string |not null | | |
 </p>
 </details>
 
-_<details><summary><h3>teacher_student</h3></summary>_
-  <p> 
-Отнишения учитель-ученик
-
-| Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
-| ------------------ | :---: | :-----------: | :--: | :----------------: |
-| teacher_student_id | int64 | >0, not null|  + | homeworks, roadmaps  |
-| teacher_id | int64 | >0, not null, one of the users.user_id| | | |
-| student_id | int64 | >0, not null, one of the users.user_id| | |
-| subject_id | int64 | >0, not null, one of the subjects.subject_id| | |
-</p>
-</details>
-
-_<details><summary><h3>subjects</h3></summary>_
+_<details><summary><h3>Roles</h3></summary>_
   <p> 
 Предметы
 
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
 | ------------------ | :---: | :-----------: | :--: | :----------------: |
-| subject_id | int64 | >0, not null|  + | teacher_student  |
-| subject_name | string | not null, len>0| | | |
+| role_id | int64 | >0, not null| + | Users |
+| name | string | not null, len>0, len<32| | | |
 </p>
 </details>
 
-_<details><summary><h3>homeworks</h3></summary>_
+_<details><summary><h3>TeacherStudentRelation</h3></summary>_
+  <p> 
+Отношения учитель-ученик
+
+| Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
+| ------------------ | :---: | :-----------: | :--: | :----------------: |
+| relation_id | int64 | >0, not null|  + | Homeworks, Ratings |
+| teacher_id | int64 | >0, not null, one of the Users.user_id| | | |
+| student_id | int64 | >0, not null, one of the Users.user_id| | |
+| subject_id | int64 | >0, not null, one of the Subjects.subject_id| | |
+| status_id | int64 | >0, not null, one of the StatusOfRelations.status_id | | |
+</p>
+</details>
+
+_<details><summary><h3>StatusOfRelation</h3></summary>_
+  <p> 
+Предметы
+
+| Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
+| ------------------ | :---: | :-----------: | :--: | :----------------: |
+| status_id | int64 | >0, not null|  + | TeacherStudentRelation  |
+| name | string | not null, len>0, len<32| | | |
+</p>
+</details>
+
+_<details><summary><h3>Subjects</h3></summary>_
+  <p> 
+Предметы
+
+| Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
+| ------------------ | :---: | :-----------: | :--: | :----------------: |
+| subject_id | int64 | >0, not null|  + | TeacherStudentRelation, TeacherSubjects  |
+| name | string | not null, len>0, len<32| | | |
+</p>
+</details>
+
+_<details><summary><h3>TeacherSubjects</h3></summary>_
+  <p> 
+Отношения учитель-предмет
+
+| Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
+| ------------------ | :---: | :-----------: | :--: | :----------------: |
+| relation_id | int64 | >0, not null|  + |  |
+| teacher_id | int64 | >0, not null, one of the Users.user_id|   |  |
+| subject_id | int64 | >0, not null, one of the Subjects.subject_id|   |  |
+</p>
+</details>
+
+_<details><summary><h3>Homeworks</h3></summary>_
   <p> 
 Домашние задания
 
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
 | ------------------ | :---: | :-----------: | :--: | :----------------: |
 | homework_id | int64 | >0, not null|  + |  |
-| teacher_student_id | int64 | >0, not null, one of the teacher_student.teacher_student_id|  |  |
+| relation_id | int64 | >0, not null, one of the TeacherStudentRelation.relation_id|  |  |
 | desciption | string | not null, len>0| | | |
-| deadline | date | not null, >now()| | |
+| deadline | DateTime | | | |
+| solution_time | DateTime | | | |
 | complete | bool | not null| | |
 | solution | string | | | |
 | comment | string | | | |
 </p>
 </details>
 
-_<details><summary><h3>roadmaps</h3></summary>_
+_<details><summary><h3>Ratings</h3></summary>_
   <p> 
-Предметы
+Домашние задания
 
 | Название атрибута | Тип | Ограничения | PR | Внешний ключ для |
 | ------------------ | :---: | :-----------: | :--: | :----------------: |
-| roadmap_id | int64 | >0, not null|  + | |
-| teacher_student_id | int64 | >0, not null, one of the teacher_student.teacher_student_id|  |  |
-| url | string | not null, len>0| | | |
+| rating_id | int64 | >0, not null|  + |  |
+| value | short | >0, <6, not null|  |  |
+| review | string | len>0 | | | |
+| relation_id | int64 |>0, not null, one of the TeacherStudentRelation.relation_id | | |
 </p>
 </details>
+
 
 ## Общие ограничения целостности
   - Если для поля указан внешний ключ, то должен существовать документ, на который указывает этот ключ
 # Пользовательские роли
 1. **Неавторизорованный пользователь** - может авторизоваться
-2. **Обычный пользователь** - может войти как Учитель или Ученик
-3. **Модератор** - может удалять пользовательские аккаунты
-4. **Администратор** - может управлять списком модераторов
+2. **Обычный пользователь** - может залогиниться и войти как Учитель или Ученик
+3. **Администратор** - может управлять удалять пользовательские аккаунты
 
 1. Учитель
     *  добавлять учеников
     *  добавлять дз своим ученикам 
     *  комментировать выполненное дз
-    *  составлять roadmap своим ученикам 
+    *  принимать выполненное дз
 2. Ученик
-    *  добавлять учителя 
-    *  отправлять дз
-    *  просматривать свои roadmap
+    *  отправлять запрос учителю 
+    *  отправлять выполненное дз
+    *  оставлять отзыв на преподавателя
 # UI / API 
 ??
 # Технологии разработки
-asp.net
+ASP.NET, EntityFarmework
 ## Язык программирования
-SQL
+С#, HTML, CSS, JavaScript
 ## СУБД
 PostgreSQL
 # Тестирование
