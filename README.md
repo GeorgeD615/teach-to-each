@@ -119,6 +119,8 @@ _<details><summary><h3>Ratings</h3></summary>_
 </p>
 </details>
 
+![1](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/teach-to-each(DatabaseScheme).png)
+
 
 ## Общие ограничения целостности
   - Если для поля указан внешний ключ, то должен существовать документ, на который указывает этот ключ
