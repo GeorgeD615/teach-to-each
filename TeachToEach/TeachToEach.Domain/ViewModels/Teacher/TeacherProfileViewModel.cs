@@ -15,5 +15,6 @@ namespace TeachToEach.Domain.ViewModels.Teacher
         public int Age;
         public string Login;
         public List<SubjectViewModel> Subjects;
+        public int Id;
     }
 }

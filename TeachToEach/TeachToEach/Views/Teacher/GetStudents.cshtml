@@ -1,4 +1,5 @@
-﻿@model IEnumerable<TeachToEach.Domain.ViewModels.Teacher.TeacherStudentsInfoViewModel>
+﻿@using TeachToEach.Domain.ViewModels.Teacher
+@model IEnumerable<TeachToEach.Domain.ViewModels.Teacher.TeacherStudentsInfoViewModel>
 @{
     ViewData["Title"] = "GetStudents";
 }
@@ -49,6 +50,10 @@
                                 if(item.status_id == item.aprove_id)
                                 {
                                     <p>@item.Student.first_name  @item.Student.last_name  @item.Subject.SubjectName </p>
+                                    <form method="post" asp-controller="Teacher" asp-action="CreateHomeworkFirstStep"
+                                          asp-route-relation_id="@item.relation_id">
+                                        <input class="btn btn-success" type="submit" value="Задать дз"/>
+                                    </form>
                                 }
                             }
                         }
@@ -63,7 +68,16 @@
                                 {
                                     @if (item.status_id == item.request_id)
                                     {
+
                                         <p>Запрос</p>
+                                        <form method="post" asp-controller="Teacher" asp-action="ResponseRequest"
+                                              asp-route-relation_id="@item.relation_id" asp-route-status_id="@item.aprove_id">
+                                            <input class="btn btn-success" type="submit" value="Принять" />
+                                        </form>
+                                        <form method="post" asp-controller="Teacher" asp-action="ResponseRequest"
+                                              asp-route-relation_id="@item.relation_id" asp-route-status_id="@item.reject_id">
+                                            <input class="btn btn-danger" type="submit" value="Отказать" />
+                                        </form>
                                     }
                                     else
                                     {

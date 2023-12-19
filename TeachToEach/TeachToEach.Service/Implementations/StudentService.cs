@@ -58,7 +58,10 @@ namespace TeachToEach.Service.Implementations
                 var teacher = _userRepository.GetAll().FirstOrDefault(u => u.login == teacher_login);
                 var subjcet = _subjectRepository.GetAll().FirstOrDefault(s => s.name == subject_name);
 
-                if(student == null || teacher == null || subjcet == null)
+                if(student == null || teacher == null || subjcet == null
+                    || _teacherStudentRepository.GetAll().Any(r => r.teacher_id == teacher.id && 
+                                                                    r.student_id == student.id && 
+                                                                    r.subject_id == subjcet.id))
                 {
                     return new BaseResponse<bool>()
                     {
@@ -66,7 +69,7 @@ namespace TeachToEach.Service.Implementations
                         Description = "Запрос не отправлен",
                         Data = false
                     };
-                }
+                } 
 
 
                 await _teacherStudentRepository.Create(new TeacherStudent()
@@ -101,7 +104,7 @@ namespace TeachToEach.Service.Implementations
                 var subjects = _subjectRepository.GetAll();
                 var a = _teacherSubjectRepository.GetAll();
                 var teacher_subject = a.Join(subjects, 
-                    a => a.teacher_id, 
+                    a => a.subject_id, 
                     s => s.id, 
                     (t, s) => new { tId = t.teacher_id, Subject = s});
 
@@ -128,7 +131,8 @@ namespace TeachToEach.Service.Implementations
                     Subjects = teacher_subject.Where(r => r.tId == t.id).
                                                 Select(r =>new SubjectViewModel() { 
                                                     SubjectName = r.Subject.name
-                                                }).ToList()
+                                                }).ToList(),
+                    Id = t.id,
                 });
 
 

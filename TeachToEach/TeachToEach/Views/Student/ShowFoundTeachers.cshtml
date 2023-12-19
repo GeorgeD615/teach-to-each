@@ -1,8 +1,7 @@
-﻿@using TeachToEach.Domain.ViewModels.Student
-@model IEnumerable<StudentHomeworkViewModel>
-
+﻿@using TeachToEach.Domain.ViewModels.Teacher
+@model IEnumerable<TeacherProfileViewModel>
 @{
-    ViewData["Title"] = "GetHWtoStudent";
+    ViewData["Title"] = "ShowFoundTeachers";
 }
 
 <body>
@@ -35,17 +34,28 @@
             </div>
 
             <div id="personal-data-stud" class="col-10">
-                <h2 id="lk-s">Домашние задания</h2>
-                <p>Здесь выводится список дз из БД</p>
-                @foreach (var item in Model)
-                {
-                    <p>@item.Subject.SubjectName @item.Deadline @item.Description</p>
-                }
+                <h2 id="lk-s">Найденные преподаватели</h2>
+                <div>
+                    <p>Здесь выводится список из БД</p>
+                    @if (Model != null)
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <p>@item.FirstName  @item.LastName  @item.Age лет</p>
+                            <form method="post" asp-controller="Student" asp-action="CreaetRequest"
+                                  asp-route-teacher_login="@item.Login" asp-route-subject="@item.Subjects.FirstOrDefault().SubjectName">
+                                <input class="btn btn-primary" type="submit" value="Отправить запрос" />
+                            </form>
+                        }
+                    }
+                </div>
             </div>
 
         </div>
 
     </div>
+
+
 
 
     <main>
@@ -60,3 +70,6 @@
     </main>
 
 </body>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+
