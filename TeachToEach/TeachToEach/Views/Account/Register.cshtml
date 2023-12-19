@@ -3,12 +3,12 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>Register</h1>
-
+<h1>Регистрация</h1>
+<h2 id="login-form">Введите данные для создания аккаунта</h2>
 <div>
     <div class="row">
         <div class="col-4"></div>
-        <div class="col-4">
+        <div id="form-register" class="col-4">
             <form asp-controller="Account" asp-action="Register">
 
                 <input asp-for="FirstName" class="form-control textbox-dg font-weight-bold text-center" placeholder="Имя" type="text">

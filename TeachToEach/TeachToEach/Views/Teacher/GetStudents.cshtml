@@ -42,50 +42,104 @@
                     <label class="btn btn-outline-primary" for="bt-my-request">Мои запросы</label>
 
                     <div class="tab-content" id="content-1">
-                        <p>Здесь выводится список из БД</p>
                         @if(Model != null)
                         {
-                            @foreach (var item in Model)
-                            {
-                                if(item.status_id == item.aprove_id)
-                                {
-                                    <p>@item.Student.first_name  @item.Student.last_name  @item.Subject.SubjectName </p>
-                                    <form method="post" asp-controller="Teacher" asp-action="CreateHomeworkFirstStep"
-                                          asp-route-relation_id="@item.relation_id">
-                                        <input class="btn btn-success" type="submit" value="Задать дз"/>
-                                    </form>
-                                }
-                            }
+
+                            <div class="card col-md-12">
+                                <table class="table table-striped">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th scope="col">Фамилия</th>
+                                            <th scope="col">Имя</th>
+                                            <th scope="col">Предмет</th>
+                                            <th scope="col"> </th>
+                                            <th scope="col"> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in @Model)
+                                        {
+                                            @if(item.status_id == item.aprove_id)
+                                            {
+                                                <tr>
+                                                    <td>@item.Student.last_name</td>
+                                                    <td>@item.Student.first_name</td>
+                                                    <td>@item.Subject.SubjectName</td>
+                                                    <td>
+                                                        <form method="post" asp-controller="Teacher" asp-action="CreateHomeworkFirstStep"
+                                                      asp-route-relation_id="@item.relation_id">
+                                                            <input class="btn btn-success" type="submit" value="Задать д/з" />
+                                                        </form>
+                                                    </td>
+                                                    <td>
+                                                        <button type="submit" class="btn btn-sm btn-primary">
+                                                            Посмотреть
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </div> 
                         }
                     </div>
                     <div class="tab-content" id="content-2">
-                        <p>Здесь выводится список из БД</p>
                         @if (Model != null)
                         {
-                            @foreach (var item in Model)
-                            {
-                                if (item.status_id != item.aprove_id)
-                                {
-                                    @if (item.status_id == item.request_id)
-                                    {
 
-                                        <p>Запрос</p>
-                                        <form method="post" asp-controller="Teacher" asp-action="ResponseRequest"
-                                              asp-route-relation_id="@item.relation_id" asp-route-status_id="@item.aprove_id">
-                                            <input class="btn btn-success" type="submit" value="Принять" />
-                                        </form>
-                                        <form method="post" asp-controller="Teacher" asp-action="ResponseRequest"
-                                              asp-route-relation_id="@item.relation_id" asp-route-status_id="@item.reject_id">
-                                            <input class="btn btn-danger" type="submit" value="Отказать" />
-                                        </form>
-                                    }
-                                    else
-                                    {
-                                        <p>Отказано</p>
-                                    }
-                                    <p>@item.Student.first_name  @item.Student.last_name  @item.Subject.SubjectName</p>
-                                }
-                            }
+                            <div class="card col-md-12">
+                                <table class="table table-striped">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th scope="col">Фамилия</th>
+                                            <th scope="col">Имя</th>
+                                            <th scope="col">Предмет</th>
+                                            <th scope="col">Статус</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in @Model)
+                                        {
+                                            @if (item.status_id != item.aprove_id)
+                                            {
+                                                @if (item.status_id == item.request_id)
+                                                {
+                                                    <tr>
+                                                        <td>@item.Student.last_name</td>
+                                                        <td>@item.Student.first_name</td>
+                                                        <td>@item.Subject.SubjectName</td>
+                                                        <td>
+                                                            @if (item.status_id != item.aprove_id)
+                                                            {
+                                                                @if (item.status_id == item.request_id)
+                                                                {
+                                                                    <form method="post" asp-controller="Teacher" asp-action="ResponseRequest"
+                                                              asp-route-relation_id="@item.relation_id" asp-route-status_id="@item.aprove_id">
+                                                                        <input class="btn btn-success" type="submit" value="Принять" />
+                                                                    </form>
+                                                                    <form method="post" asp-controller="Teacher" asp-action="ResponseRequest"
+                                                              asp-route-relation_id="@item.relation_id" asp-route-status_id="@item.reject_id">
+                                                                        <input class="btn btn-danger" type="submit" value="Отказать" />
+                                                                    </form>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <p>Отказано</p>
+                                                                }
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                }
+
+                                            }
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            
                         }
                     </div>
                     
