@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections;
+using TeachToEach.Domain.ViewModels.Student;
+using TeachToEach.Domain.ViewModels.Teacher;
 using TeachToEach.Service.Implementations;
 using TeachToEach.Service.Interfaces;
 
@@ -42,14 +45,35 @@ namespace TeachToEach.Controllers
             return RedirectToAction("Error");
         }
 
+        [HttpGet]
         public async Task<IActionResult> FindTeacher()
         {
-            var response = await _studentService.GetHomewoks(User.Identity.Name);
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> FindTeacher(TeacherFindViewModel teacherFindViewModel)
+        {
+            
+            var response = await _studentService.FindTeacher(teacherFindViewModel);
             if (response.StatusCode == Domain.Enum.StatusCode.OK)
             {
-                return View(response.Data);
+                return View("ShowFoundTeachers", response.Data);
             }
             return RedirectToAction("Error");
+        }
+
+
+        public async Task<IActionResult> ShowFoundTeachers(IEnumerable<TeacherProfileViewModel> teachers)
+        {
+            return View(teachers);
+        } 
+
+        public async Task<IActionResult> CreaetRequest(string teacher_login, string subject)
+        {
+            var response = await _studentService.CreateRequest(User.Identity.Name, teacher_login, subject);
+            
+            return RedirectToAction("GetTeachers");
         }
     }
 }

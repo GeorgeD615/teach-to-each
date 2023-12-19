@@ -23,13 +23,12 @@
     <div id="lk-body" class="container-fluid">
         <div class="row">
             <div id="side-nav-stud" class="col-2">
-
                 <div class="sidenav">
                     <a asp-controller="Student" asp-action="Student">Моя страница</a>
                     <a asp-controller="Student" asp-action="GetTeachers">Мои занятия</a>
                     <a asp-controller="Student" asp-action="GetHWtoStudent">Домашние задания</a>
+                    <a asp-controller="Student" asp-action="FindTeacher">Найти преподавателя</a>
                 </div>
-
             </div>
 
             <div id="personal-data-stud" class="col-10">
@@ -40,10 +39,6 @@
 
                     <input type="radio" name="btntoteach" id="bt-my-request" value="">
                     <label class="btn btn-outline-primary" for="bt-my-request">Мои запросы</label>
-
-                    <input type="radio" name="btntoteach" id="bt-find-teach" value="">
-                    <label class="btn btn-outline-primary" for="bt-find-teach">Найти преподавателя</label>
-
                     <div class="tab-content" id="content-1">
                         <p>Здесь выводится список из БД</p>
                         @if(Model != null)
@@ -70,54 +65,6 @@
                                 <p>@item.Subject.SubjectName  @item.Teacher.first_name  @item.Teacher.last_name</p>
                             }
                         }
-                    </div>
-                    <div class="tab-content" id="content-3">
-                        <form id="form-search-teacher">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputEmail">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputLastName">Фамилия</label>
-                                    <input type="text" class="form-control" id="inputLastName" placeholder="Фамилия">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputFirstName">Имя</label>
-                                    <input type="text" class="form-control" id="inputFirstName" placeholder="Имя">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="inputDadName">Отчество</label>
-                                    <input type="text" class="form-control" id="inputDadName" placeholder="Отчество">
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="inputCity">City</label>
-                                    <input type="text" class="form-control" id="inputCity">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="inputSubject">Предмет</label>
-                                    <select id="inputSubject" class="form-control">
-                                        <option selected>Choose...</option>
-                                        <option>"Математика"</option>
-                                        <option>Информатика</option>
-                                        <option>Литература</option>
-                                        <option>Обществознание</option>
-                                        <option>Программирование</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox"> Есть отзывы на сайте
-                                    </label>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary" id="search-teacher">Найти</button>
-                        </form>
-
                     </div>
                 </div>            
             </div>
