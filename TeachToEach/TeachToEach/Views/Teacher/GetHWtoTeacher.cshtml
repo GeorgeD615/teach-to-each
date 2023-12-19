@@ -40,15 +40,20 @@
                 {
                     @foreach (var item in Model)
                     {
-                        <p>@item.Student.last_name @item.Subject.SubjectName @item.Deadline @item.Description @item.SolutionTime @item.TeacherComment @item.IsCompleted</p>
+                        <p>@item.Student.last_name @item.Subject.SubjectName @item.Deadline @item.Description @item.Solution @item.SolutionTime @item.TeacherComment @item.IsCompleted</p>
+                        <form method="post" asp-controller="Teacher" asp-action="UpdateHomeworkFirstStep"
+                              asp-route-id="@item.homework_id"
+                              asp-route-description="@item.Description"
+                              asp-route-deadline="@item.Deadline"
+                              asp-route-teacherComment="@item.TeacherComment"
+                              asp-route-isCompleted="@item.IsCompleted"
+                              asp-route-solution="@item.Solution">
+                            <input class="btn btn-primary" type="submit" value="Редактировать"/>
+                        </form>
                     }
                 }
             </div>
-
-
-
         </div>
-
     </div>
 
 

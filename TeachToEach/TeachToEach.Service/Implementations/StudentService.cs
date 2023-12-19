@@ -324,6 +324,7 @@ namespace TeachToEach.Service.Implementations
 
                 homework.solution = homeworkUpdateViewModel.solution;
                 homework.solution_time = DateTime.Now;
+                homework.teacher_comment = null;
 
                 bool result = await _homeworkRepository.Edit(homework);
 

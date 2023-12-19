@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections;
+using TeachToEach.Domain.ViewModels;
 using TeachToEach.Domain.ViewModels.Student;
 using TeachToEach.Domain.ViewModels.Teacher;
 using TeachToEach.Service.Implementations;
@@ -74,6 +75,35 @@ namespace TeachToEach.Controllers
             var response = await _studentService.CreateRequest(User.Identity.Name, teacher_login, subject);
             
             return RedirectToAction("GetTeachers");
+        }
+
+        public async Task<IActionResult> UpdateHomeworkFirstStep(int id, string solution, string description, string teacherComment)
+        {
+            return RedirectToAction("UpdateHomeworkPage", new { id = id, solution = solution, description = description, teacherComment = teacherComment });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateHomeworkPage(int id, string solution, string description, string teacherComment)
+        {
+            HomeworkUpdateViewModel updateViewModel = new HomeworkUpdateViewModel()
+            {
+                id = id,
+                solution = solution,
+                description = description,
+                teacher_comment = teacherComment
+            };
+            return View(updateViewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateHomeworkPage(HomeworkUpdateViewModel updateViewModel)
+        {
+            var response = await _studentService.UpdateHomework(updateViewModel);
+            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return RedirectToAction("GetHWtoStudent");
+            }
+            return RedirectToAction("GetHWtoStudent");
         }
     }
 }
