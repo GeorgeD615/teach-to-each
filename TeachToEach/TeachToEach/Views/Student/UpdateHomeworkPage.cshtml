@@ -1,8 +1,7 @@
-﻿@using TeachToEach.Domain.ViewModels.Student
-@model IEnumerable<StudentHomeworkViewModel>
-
+﻿@using TeachToEach.Domain.ViewModels
+@model HomeworkUpdateViewModel
 @{
-    ViewData["Title"] = "GetHWtoStudent";
+    ViewData["Title"] = "UpdateHomeworkPage";
 }
 
 <body>
@@ -31,30 +30,24 @@
                     <a asp-controller="Student" asp-action="GetHWtoStudent">Домашние задания</a>
                     <a asp-controller="Student" asp-action="FindTeacher">Найти преподавателя</a>
                 </div>
-
             </div>
-
             <div id="personal-data-stud" class="col-10">
-                <h2 id="lk-s">Домашние задания</h2>
-                <p>Здесь выводится список дз из БД</p>
-                @foreach (var item in Model)
-                {
-                    <p>@item.Subject.SubjectName @item.Deadline @item.Description @item.Solution @item.SolutionTime @item.IsCompleted @item.TeacherComment</p>
-                    <form method="post" asp-controller="Student" asp-action="UpdateHomeworkFirstStep"
-                          asp-route-id="@item.homework_id"
-                          asp-route-description="@item.Description"
-                          asp-route-deadline="@item.Deadline"
-                          asp-route-teacherComment="@item.TeacherComment"
-                          asp-route-isCompleted="@item.IsCompleted">
-                        <input class="btn btn-primary" type="submit" value="Редактировать" />
-                    </form>
-                }
+                <h2 id="lk-s">Домашнее задание</h2>
+                <p>Условие: @Model.description</p>
+                <p>Комментарий учителя: @Model.teacher_comment</p>
+
+                <form method="post" id="form-search-teacher">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputLastName">Решение</label>
+                            <input value="@Model.solution" asp-for="solution" type="text" class="form-control" id="inputSolution" placeholder="Решение">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-lg float-right" type="submit">Отправить</button>
+                </form>
             </div>
-
         </div>
-
     </div>
-
 
     <main>
         <aside>
@@ -68,3 +61,7 @@
     </main>
 
 </body>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+
