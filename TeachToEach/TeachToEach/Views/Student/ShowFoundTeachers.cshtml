@@ -36,17 +36,36 @@
             <div id="personal-data-stud" class="col-10">
                 <h2 id="lk-s">Найденные преподаватели</h2>
                 <div>
-                    <p>Здесь выводится список из БД</p>
                     @if (Model != null)
                     {
-                        @foreach (var item in Model)
-                        {
-                            <p>@item.FirstName  @item.LastName  @item.Age лет</p>
-                            <form method="post" asp-controller="Student" asp-action="CreaetRequest"
-                                  asp-route-teacher_login="@item.Login" asp-route-subject="@item.Subjects.FirstOrDefault().SubjectName">
-                                <input class="btn btn-primary" type="submit" value="Отправить запрос" />
-                            </form>
-                        }
+                        <div class="card col-md-12">
+                            <table class="table table-striped">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">Фамилия</th>
+                                        <th scope="col">Имя</th>
+                                        <th scope="col">Возраст</th>
+                                        <th scope="col">Предмет</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.LastName</td>
+                                            <td>@item.FirstName</td>
+                                            <td>@item.Age лет</td>
+                                            <td>
+                                                <form method="post" asp-controller="Student" asp-action="CreaetRequest"
+                                              asp-route-teacher_login="@item.Login" asp-route-subject="@item.Subjects.FirstOrDefault().SubjectName">
+                                                    <input class="btn btn-primary" type="submit" value="Отправить запрос" />
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>                       
                     }
                 </div>
             </div>
