@@ -53,8 +53,8 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="inputSubject">Предмет</label>
-                            <select asp-for="subject" id="inputSubject" class="form-control" type="text">
+                            <label for="inputSubject">Предмет(обязательное поле)</label>
+                            <select asp-for="subject" id="inputSubject" class="form-control" type="text" required>
                                 <option selected></option>
                                 <option>Математика</option>
                                 <option>Информатика</option>
@@ -69,7 +69,7 @@
                             </select>
                         </div>
                     </div>
-                    <button class="btn btn-primary btn-lg float-right" type="submit">Найти</button>
+                    <button id="btn-find-teacher" class="btn btn-primary btn-lg float-right" type="submit">Найти</button>
                 </form>
             </div>
 

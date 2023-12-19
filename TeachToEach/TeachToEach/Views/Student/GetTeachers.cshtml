@@ -40,30 +40,66 @@
                     <input type="radio" name="btntoteach" id="bt-my-request" value="">
                     <label class="btn btn-outline-primary" for="bt-my-request">Мои запросы</label>
                     <div class="tab-content" id="content-1">
-                        <p>Здесь выводится список из БД</p>
                         @if(Model != null)
                         {
-                            @foreach (var item in Model.Where(s => s.status_id == s.aprove_id))
-                            {
-                                <p>@item.Subject.SubjectName  @item.Teacher.first_name  @item.Teacher.last_name</p>
-                            }
+                                <div class="card col-md-12">
+                                    <table class="table table-striped">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">Фамилия</th>
+                                                <th scope="col">Имя</th>
+                                                <th scope="col">Предмет</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach (var item in Model.Where(s => s.status_id == s.aprove_id))
+                                        {
+                                                    <tr>
+                                                        <td>@item.Teacher.last_name</td>
+                                                        <td>@item.Teacher.first_name</td>
+                                                        <td>@item.Subject.SubjectName</td>
+                                                    </tr>
+                                        }
+                                        </tbody>
+                                    </table>
+                                </div>
                         }
                     </div>
                     <div class="tab-content" id="content-2">
-                        <p>Здесь выводится список из БД</p>
                         @if (Model != null)
                         {
-                            @foreach (var item in Model.Where(s => s.status_id != s.aprove_id))
-                            {
-                                @if(item.status_id == item.reject_id)
-                                {
-                                    <p>Отказано</p>
-                                }else
-                                {
-                                    <p>Ожидание</p>
-                                }
-                                <p>@item.Subject.SubjectName  @item.Teacher.first_name  @item.Teacher.last_name</p>
-                            }
+                            <div class="card col-md-12">
+                                <table class="table table-striped">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th scope="col">Фамилия</th>
+                                            <th scope="col">Имя</th>
+                                            <th scope="col">Предмет</th>
+                                            <th scope="col">Статус</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Where(s => s.status_id != s.aprove_id))
+                                        {
+                                            <tr>
+                                                <td>@item.Teacher.last_name</td>
+                                                <td>@item.Teacher.first_name</td>
+                                                <td>@item.Subject.SubjectName</td>
+                                                <td>
+                                                    @if (item.status_id == item.reject_id)
+                                                    {
+                                                        <p>Отказано</p>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p>Ожидание</p>
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
                         }
                     </div>
                 </div>            

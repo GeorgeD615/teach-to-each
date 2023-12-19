@@ -38,19 +38,52 @@
                 <p>Здесь выводится список дз из БД</p>
                 @if(Model != null)
                 {
-                    @foreach (var item in Model)
-                    {
-                        <p>@item.Student.last_name @item.Subject.SubjectName @item.Deadline @item.Description @item.Solution @item.SolutionTime @item.TeacherComment @item.IsCompleted</p>
-                        <form method="post" asp-controller="Teacher" asp-action="UpdateHomeworkFirstStep"
-                              asp-route-id="@item.homework_id"
-                              asp-route-description="@item.Description"
-                              asp-route-deadline="@item.Deadline"
-                              asp-route-teacherComment="@item.TeacherComment"
-                              asp-route-isCompleted="@item.IsCompleted"
-                              asp-route-solution="@item.Solution">
-                            <input class="btn btn-primary" type="submit" value="Редактировать"/>
-                        </form>
-                    }
+
+                    <div class="card col-md-12">
+                        <table class="table table-striped">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Ученик </th>
+                                    <th scope="col">Предмет</th>
+                                    <th scope="col">Срок сдачи</th>
+                                    <th scope="col">Описание</th>
+                                    <th scope="col">Решение</th>
+                                    <th scope="col">Время изменения</th>
+                                    <th scope="col">Сдача</th>
+                                    <th scope="col">Комментарий </th>
+                                    <th scope="col">Редактировать</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Student.last_name</td>
+                                        <td>@item.Subject.SubjectName</td>
+                                        <td>@item.Deadline</td>
+                                        <td>@item.Description</td>
+                                        <td>@item.Solution</td>
+                                        <td>@item.SolutionTime</td>
+                                        <td>@item.TeacherComment</td>
+                                        <td>@item.IsCompleted</td>
+                                        
+                                        <td>
+                                            <form method="post" asp-controller="Teacher" asp-action="UpdateHomeworkFirstStep"
+                                          asp-route-id="@item.homework_id"
+                                          asp-route-description="@item.Description"
+                                          asp-route-deadline="@item.Deadline"
+                                          asp-route-teacherComment="@item.TeacherComment"
+                                          asp-route-isCompleted="@item.IsCompleted"
+                                          asp-route-solution="@item.Solution">
+                                                <input class="btn btn-primary" type="submit" value="Редактировать" />
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
                 }
             </div>
         </div>

@@ -207,3 +207,18 @@ div#form-register, div#login-form {
 h4#login-form, a#btn-registr, button#btn-send, button#btn-login-form {
     margin-top: 20px;
 }
+
+/* Student page */
+button#btn-find-teacher, button#btn-send-hw {
+    margin-top: 20px;
+}
+
+form#form-search-teacher{
+    margin-bottom:5px;
+}
+
+/* Teacher page */
+
+button#btn-send-create-hw {
+    margin-top: 20px;
+}
