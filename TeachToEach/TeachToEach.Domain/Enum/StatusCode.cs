@@ -22,6 +22,9 @@ namespace TeachToEach.Domain.Enum
         HomeworkNotCreated = 5,
         HomeworkNotUpdated = 6,
 
+        //Rating
+        RatingNotCreated = 7,
+
         OK = 200,
         InternalServerError = 500
     }
