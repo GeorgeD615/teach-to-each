@@ -222,3 +222,9 @@ form#form-search-teacher{
 button#btn-send-create-hw {
     margin-top: 20px;
 }
+
+h4#teachers-subjects {
+    padding: 20px;
+    border: 3px solid #00539f;
+    text-align:center;
+}
