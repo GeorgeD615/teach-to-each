@@ -17,13 +17,15 @@ namespace TeachToEach.Domain.Enum
         //Account
         AccountAlreadyExists = 4,
 
-
         //Homework
         HomeworkNotCreated = 5,
         HomeworkNotUpdated = 6,
 
         //Rating
         RatingNotCreated = 7,
+
+        //Subject
+        SubjectNotAdded = 8,
 
         OK = 200,
         InternalServerError = 500

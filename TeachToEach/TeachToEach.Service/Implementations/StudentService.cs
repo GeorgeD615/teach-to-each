@@ -24,6 +24,7 @@ namespace TeachToEach.Service.Implementations
         private readonly IBaseRepository<TeacherStudent> _teacherStudentRepository;
         private readonly IBaseRepository<StatusOfRelation> _statusOfRelationRepository;
         private readonly IBaseRepository<Homework> _homeworkRepository;
+        private readonly IBaseRepository<Rating> _ratingRepository;
 
         private int _aprove_id;
         private int _request_id;
@@ -34,7 +35,8 @@ namespace TeachToEach.Service.Implementations
             IBaseRepository<TeacherSubject> teacherSubjectRepository,
             IBaseRepository<TeacherStudent> teacherStudentRepository,
             IBaseRepository<StatusOfRelation> statusOfRelationRepository,
-            IBaseRepository<Homework> homeworkRepository)
+            IBaseRepository<Homework> homeworkRepository,
+            IBaseRepository<Rating> ratingRepository)
         {
             _userRepository = userRepository;
             _subjectRepository = subjectRepository;
@@ -42,6 +44,7 @@ namespace TeachToEach.Service.Implementations
             _teacherStudentRepository = teacherStudentRepository;
             _statusOfRelationRepository = statusOfRelationRepository;
             _homeworkRepository = homeworkRepository;
+            _ratingRepository = ratingRepository;
 
             var status = _statusOfRelationRepository.GetAll();
 
@@ -121,6 +124,16 @@ namespace TeachToEach.Service.Implementations
 
                 teachers = teachers.Where(t => teacher_subject.Any(r => r.tId == t.id));
 
+                var ratings = _ratingRepository.GetAll();
+                var teacherStudents = _teacherStudentRepository.GetAll().Where(r => teachers.Any(t => t.id == r.teacher_id));
+
+                var ratingsTeachers = ratings.Join(teacherStudents,
+                    r => r.relation_id,
+                    ts => ts.id,
+                    (rating, relation) => new { teacher_id = relation.teacher_id, teacher_rating = rating.rating_value });
+
+
+
 
                 var result = teachers.Select(t => new TeacherProfileViewModel()
                 {
@@ -133,7 +146,8 @@ namespace TeachToEach.Service.Implementations
                                                     SubjectName = r.Subject.name
                                                 }).ToList(),
                     Id = t.id,
-                });
+                    AvgRating = (float)ratingsTeachers.Where(r => r.teacher_id == t.id).Select(r => r.teacher_rating).Average()
+                }).OrderBy(r => r.AvgRating);
 
 
                 return new BaseResponse<IEnumerable<TeacherProfileViewModel>>()
@@ -276,6 +290,7 @@ namespace TeachToEach.Service.Implementations
                 var users = _userRepository.GetAll();
                 var teacher_student = _teacherStudentRepository.GetAll().Where(s => s.student_id == student.id);
                 var subjects = _subjectRepository.GetAll();
+                var ratings = _ratingRepository.GetAll();
 
                 var res = users.Join(teacher_student,
                                     u => u.id,
@@ -294,10 +309,14 @@ namespace TeachToEach.Service.Implementations
                                         },
                                         status_id = relation.status_id,
 
+                                        relation_id = relation.id,
+
+                                        hasRating = ratings.Any(r => r.relation_id == relation.id),
+
                                         aprove_id = _aprove_id,
                                         reject_id = _reject_id,
                                         request_id = _request_id
-                                    }).OrderByDescending(r => r.status_id).ToList();
+                                    }).OrderBy(r => r.status_id).ToList();
 
                 return new BaseResponse<IEnumerable<StudentTeacherInfoViewModel>>()
                 {
@@ -348,6 +367,58 @@ namespace TeachToEach.Service.Implementations
                 }
             }
             catch (Exception ex)
+            {
+                return new BaseResponse<bool>()
+                {
+                    Data = false,
+                    StatusCode = StatusCode.InternalServerError,
+                    Description = ex.Message
+                };
+            }
+        }
+        public async Task<IBaseResponse<bool>> CreateRating(CreateRatingViewModel createRatingViewModel)
+        {
+            try
+            {
+                var rating = new Rating()
+                {
+                    relation_id = createRatingViewModel.relation_id,
+                    rating_value = createRatingViewModel.rating_value,
+                    review = createRatingViewModel.review
+                };
+
+                var old_rating = _ratingRepository.GetAll().FirstOrDefault(r => r.relation_id == rating.relation_id);
+                bool result;
+                if (old_rating != null)
+                {
+                    old_rating.rating_value = rating.rating_value;
+                    old_rating.review = rating.review;
+                    result = await _ratingRepository.Edit(old_rating);
+                }
+                else
+                {
+                    result = await _ratingRepository.Create(rating);
+                }
+
+                if (result)
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        Data = result,
+                        StatusCode = StatusCode.OK,
+                        Description = "Отзыв отправлен"
+                    };
+                }
+               
+                return new BaseResponse<bool>()
+                {
+                    Data = result,
+                    StatusCode = StatusCode.RatingNotCreated,
+                    Description = "Отзыв не отправлен"
+                };
+                 
+
+            }catch (Exception ex)
             {
                 return new BaseResponse<bool>()
                 {

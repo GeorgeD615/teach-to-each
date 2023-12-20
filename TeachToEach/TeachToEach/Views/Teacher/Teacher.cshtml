@@ -28,6 +28,7 @@
                             <a asp-controller="Teacher" asp-action="Teacher">Моя страница</a>
                             <a asp-controller="Teacher" asp-action="GetStudents">Ученики</a>
                             <a asp-controller="Teacher" asp-action="GetHWtoTeacher">Домашние задания</a>
+                            <a asp-controller="Teacher" asp-action="GetRatings">Посмотреть отзывы</a>
                         </div>
 
                     </div>
@@ -58,9 +59,89 @@
                 <img id="logotip" src="~/images/defolt-avatar.png" alt="Avatar">
                         <p id="personal-photo-teach">Ваше фото</p>
                     </div>
-
+            @if (!Model.Subjects.Select(s => s.SubjectName).Contains("Математика"))
+            {
+                <p>Математика</p>
+                <form method="post" asp-controller="Teacher" asp-action="AddSubject"
+                      asp-route-subject_name="Математика">
+                    <input class="btn btn-primary" type="submit" value="Добавить" />
+                </form>
+            }
+            @if (!Model.Subjects.Select(s => s.SubjectName).Contains("Информатика"))
+            {
+                <p>Информатика</p>
+                <form method="post" asp-controller="Teacher" asp-action="AddSubject"
+                      asp-route-subject_name="Информатика">
+                    <input class="btn btn-primary" type="submit" value="Добавить" />
+                </form>
+            }
+            @if (!Model.Subjects.Select(s => s.SubjectName).Contains("Литература"))
+            {
+                <p>Литература</p>
+                <form method="post" asp-controller="Teacher" asp-action="AddSubject"
+                      asp-route-subject_name="Литература">
+                    <input class="btn btn-primary" type="submit" value="Добавить" />
+                </form>
+            }
+            @if (!Model.Subjects.Select(s => s.SubjectName).Contains("Обществознание"))
+            {
+                <p>Обществознание</p>
+                <form method="post" asp-controller="Teacher" asp-action="AddSubject"
+                      asp-route-subject_name="Обществознание">
+                    <input class="btn btn-primary" type="submit" value="Добавить" />
+                </form>
+            }
+            @if (!Model.Subjects.Select(s => s.SubjectName).Contains("Рисование"))
+            {
+                <p>Рисование</p>
+                <form method="post" asp-controller="Teacher" asp-action="AddSubject"
+                      asp-route-subject_name="Рисование">
+                    <input class="btn btn-primary" type="submit" value="Добавить" />
+                </form>
+            }
+            @if (!Model.Subjects.Select(s => s.SubjectName).Contains("Музыка"))
+            {
+                <p>Музыка</p>
+                <form method="post" asp-controller="Teacher" asp-action="AddSubject"
+                      asp-route-subject_name="Музыка">
+                    <input class="btn btn-primary" type="submit" value="Добавить" />
+                </form>
+            }
+            @if (!Model.Subjects.Select(s => s.SubjectName).Contains("Физика"))
+            {
+                <p>Физика</p>
+                <form method="post" asp-controller="Teacher" asp-action="AddSubject"
+                      asp-route-subject_name="Физика">
+                    <input class="btn btn-primary" type="submit" value="Добавить" />
+                </form>
+            }
+            @if (!Model.Subjects.Select(s => s.SubjectName).Contains("Биология"))
+            {
+                <p>Биология</p>
+                <form method="post" asp-controller="Teacher" asp-action="AddSubject"
+                      asp-route-subject_name="Биология">
+                    <input class="btn btn-primary" type="submit" value="Добавить" />
+                </form>
+            }
+            @if (!Model.Subjects.Select(s => s.SubjectName).Contains("История"))
+            {
+                <p>История</p>
+                <form method="post" asp-controller="Teacher" asp-action="AddSubject"
+                      asp-route-subject_name="История">
+                    <input class="btn btn-primary" type="submit" value="Добавить" />
+                </form>
+            }
+            @if (!Model.Subjects.Select(s => s.SubjectName).Contains("Английский язык"))
+            {
+                <p>Английский язык</p>
+                <form method="post" asp-controller="Teacher" asp-action="AddSubject"
+                      asp-route-subject_name="Английский язык">
+                    <input class="btn btn-primary" type="submit" value="Добавить" />
+                </form>
+            }
                 </div>
 
+                
             </div>
 
 

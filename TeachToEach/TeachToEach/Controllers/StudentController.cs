@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections;
+using TeachToEach.Domain.Entity;
 using TeachToEach.Domain.ViewModels;
 using TeachToEach.Domain.ViewModels.Student;
 using TeachToEach.Domain.ViewModels.Teacher;
@@ -104,6 +105,32 @@ namespace TeachToEach.Controllers
                 return RedirectToAction("GetHWtoStudent");
             }
             return RedirectToAction("GetHWtoStudent");
+        }
+
+        public async Task<IActionResult> CreateRatingFirstStep(int relation_id)
+        {
+            return RedirectToAction("CreateRating", new { relation_id = relation_id });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> CreateRating(int relation_id)
+        {
+            CreateRatingViewModel model = new CreateRatingViewModel()
+            {
+                relation_id = relation_id
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateRating(CreateRatingViewModel createRatingViewModel)
+        {
+            var response = await _studentService.CreateRating(createRatingViewModel);
+            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return RedirectToAction("GetTeachers");
+            }
+            return RedirectToAction("GetTeachers");
         }
     }
 }

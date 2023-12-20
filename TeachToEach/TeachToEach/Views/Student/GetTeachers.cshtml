@@ -49,6 +49,7 @@
                                                 <th scope="col">Фамилия</th>
                                                 <th scope="col">Имя</th>
                                                 <th scope="col">Предмет</th>
+                                                <th scope="col">Отзыв</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -58,6 +59,19 @@
                                                         <td>@item.Teacher.last_name</td>
                                                         <td>@item.Teacher.first_name</td>
                                                         <td>@item.Subject.SubjectName</td>
+                                                        @if (item.hasRating)
+                                                        {
+                                                            <td>Отзыв отправлен</td>
+                                                        }
+                                                        else
+                                                        {
+                                                        <td>
+                                                            <form method="post" asp-controller="Student" asp-action="CreateRatingFirstStep"
+                                                                      asp-route-relation_id="@item.relation_id">
+                                                                    <input class="btn btn-primary" type="submit" value="Оставить отзыв" />
+                                                            </form>
+                                                        </td>
+                                                        }
                                                     </tr>
                                         }
                                         </tbody>
