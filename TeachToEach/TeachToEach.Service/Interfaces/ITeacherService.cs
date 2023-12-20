@@ -19,5 +19,6 @@ namespace TeachToEach.Service.Interfaces
         Task<IBaseResponse<bool>> CreateHomework(HomeworkCreateViewModel homeworkCreateViewModel);
         Task<IBaseResponse<bool>> UpdateHomework(HomeworkUpdateViewModel homeworkUpdateViewModel);
         Task<IBaseResponse<IEnumerable<RatingViewModel>>> GetRatings(string login);
+        Task<IBaseResponse<bool>> AddSubject(string login, string subject_name);
     }
 }

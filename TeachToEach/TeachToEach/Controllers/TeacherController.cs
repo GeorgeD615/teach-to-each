@@ -114,5 +114,15 @@ namespace TeachToEach.Controllers
             return View(response.Data);
         }
 
+        public async Task<IActionResult> AddSubject(string subject_name)
+        {
+            var response = await _teacherService.AddSubject(User.Identity.Name, subject_name);
+            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return RedirectToAction("Teacher");
+            }
+            return RedirectToAction("Teacher");
+        }
+
     }
 }

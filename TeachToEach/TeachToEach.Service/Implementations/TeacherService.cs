@@ -396,5 +396,57 @@ namespace TeachToEach.Service.Implementations
                 };
             }
         }
+
+        public async Task<IBaseResponse<bool>> AddSubject(string login, string subject_name)
+        {
+            try
+            {
+                var teacher = _userRepository.GetAll().FirstOrDefault(u => u.login == login);
+                var subject = _subjectRepository.GetAll().FirstOrDefault(s => s.name == subject_name);
+
+                if (teacher == null || subject == null)
+                {
+                    return new BaseResponse<bool>() {
+                        Data = false,
+                        StatusCode = StatusCode.UserNotFound,
+                        Description = "Предмет не добавлен"
+                    };
+                }
+
+                var check = _teacherSubjectRepository.GetAll().FirstOrDefault(r => r.teacher_id == teacher.id && r.subject_id == subject.id);
+
+                if (check != null) 
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        Data = false,
+                        StatusCode = StatusCode.SubjectNotAdded,
+                        Description = "Предмет уже добавлен"
+                    };
+                }
+
+                await _teacherSubjectRepository.Create(new TeacherSubject()
+                {
+                    teacher_id = teacher.id,
+                    subject_id = subject.id,
+                });
+
+                return new BaseResponse<bool>()
+                {
+                    Data = true,
+                    StatusCode = StatusCode.OK,
+                    Description = "Предмет успешно добавлен"
+                };
+            }
+            catch (Exception ex)
+            {
+                return new BaseResponse<bool>()
+                {
+                    Data = false,
+                    StatusCode = StatusCode.InternalServerError,
+                    Description = ex.Message
+                };
+            }
+        }
     }
 }
