@@ -1,0 +1,66 @@
+﻿@using TeachToEach.Domain.ViewModels.Student
+@model CreateRatingViewModel
+@{
+    ViewData["Title"] = "CreateRating";
+}
+
+<body>
+    <section id="logo-title">
+        <div class="content">
+            <div class="row">
+                <div class="col-2" id="logo">
+                    <img id="logotip" src="~/images/main-logo.png" alt="Main logo">
+                </div>
+                <div class="col-10">
+                    <h1 class="text-centre">Teach-to-each</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h2 id="lk-s">Личный кабинет ученика</h2>
+
+    <div id="lk-body" class="container-fluid">
+        <div class="row">
+            <div id="side-nav-stud" class="col-2">
+
+                <div class="sidenav">
+                    <a asp-controller="Student" asp-action="Student">Моя страница</a>
+                    <a asp-controller="Student" asp-action="GetTeachers">Мои занятия</a>
+                    <a asp-controller="Student" asp-action="GetHWtoStudent">Домашние задания</a>
+                    <a asp-controller="Student" asp-action="FindTeacher">Найти преподавателя</a>
+                </div>
+            </div>
+            <div id="personal-data-stud" class="col-10">
+                <h2 id="lk-s">Отзыв</h2>
+
+                <form method="post" id="form-search-teacher">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputReview">Отзыв</label>
+                            <input asp-for="review" type="text" class="form-control" id="inputSolution" placeholder="Отзыв">
+                            <label for="inputRatingValue">Рейтинг</label>
+                            <input value="5" asp-for="rating_value" type="number" max="5" min="1" class="form-control" id="inputSolution" placeholder="Отзыв">
+                        </div>
+                    </div>
+                    <button id="btn-send-hw" class="btn btn-primary btn-lg float-right" type="submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <aside>
+            <h2>Связанные темы</h2>
+
+            <ul>
+                <li><a href="#">Как найти хорошего репетитора?</a></li>
+                <li><a href="#">Как стать самостоятельным?</a></li>
+            </ul>
+        </aside>
+    </main>
+
+</body>
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+

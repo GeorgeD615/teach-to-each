@@ -18,6 +18,7 @@ namespace TeachToEach.Service.Interfaces
         Task<IBaseResponse<bool>> CreateRequest(string student_login, string teacher_login, string subject_name);
         Task<IBaseResponse<IEnumerable<TeacherProfileViewModel>>> FindTeacher(TeacherFindViewModel teacherFindViewModel);
         Task<IBaseResponse<bool>> UpdateHomework(HomeworkUpdateViewModel homeworkUpdateViewModel);
+        Task<IBaseResponse<bool>> CreateRating(CreateRatingViewModel createRatingViewModel);
 
     }
 }

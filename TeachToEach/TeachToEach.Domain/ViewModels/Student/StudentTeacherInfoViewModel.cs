@@ -14,8 +14,12 @@ namespace TeachToEach.Domain.ViewModels.Student
 
         public int status_id { get; set; }
 
+        public int relation_id { get; set; }
+
         public int aprove_id { get; set; }
         public int request_id { get; set; }
         public int reject_id { get; set; }
+
+        public bool hasRating { get; set; }
     }
 }

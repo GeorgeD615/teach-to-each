@@ -23,17 +23,19 @@ namespace TeachToEach.Service.Implementations
         private readonly IBaseRepository<TeacherStudent> _teacherStudentRepository;
         private readonly IBaseRepository<StatusOfRelation> _statusOfRelationRepository;
         private readonly IBaseRepository<Homework> _homeworkRepository;
+        private readonly IBaseRepository<Rating> _ratingRepository;
 
         private int _aprove_id;
         private int _request_id;
         private int _reject_id;
 
         public TeacherService(IBaseRepository<User> userRepository, 
-            IBaseRepository<Subject> subjectRepository, 
+            IBaseRepository<Subject> subjectRepository,
             IBaseRepository<TeacherSubject> teacherSubjectRepository,
             IBaseRepository<TeacherStudent> teacherStudentRepository,
             IBaseRepository<StatusOfRelation> statusOfRelationRepository,
-            IBaseRepository<Homework> homeworkRepository)
+            IBaseRepository<Homework> homeworkRepository,
+            IBaseRepository<Rating> ratingRepository)
         {
             _userRepository = userRepository;
             _subjectRepository = subjectRepository;
@@ -41,6 +43,7 @@ namespace TeachToEach.Service.Implementations
             _teacherStudentRepository = teacherStudentRepository;
             _statusOfRelationRepository = statusOfRelationRepository;
             _homeworkRepository = homeworkRepository;
+            _ratingRepository = ratingRepository;
 
             var status = _statusOfRelationRepository.GetAll();
 
@@ -336,6 +339,58 @@ namespace TeachToEach.Service.Implementations
                 return new BaseResponse<bool>()
                 {
                     Data = false,
+                    StatusCode = StatusCode.InternalServerError,
+                    Description = ex.Message
+                };
+            }
+        }
+
+        public async Task<IBaseResponse<IEnumerable<RatingViewModel>>> GetRatings(string login)
+        {
+            try
+            {
+                var users = _userRepository.GetAll();
+                var teacher = users.FirstOrDefault(x => x.login == login);
+                if(teacher == null)
+                {
+                    return new BaseResponse<IEnumerable<RatingViewModel>>()
+                    {
+                        Data = null,
+                        StatusCode = StatusCode.UserNotFound,
+                        Description = "Пользовател не найден"
+                    };
+                }
+
+                var lessons = _teacherStudentRepository.GetAll().Where(r => r.teacher_id == teacher.id);
+                var ratings = _ratingRepository.GetAll();
+                var subjects = _subjectRepository.GetAll();
+
+                var ratings_relation = lessons.Join(ratings,
+                    l => l.id,
+                    r => r.relation_id,
+                    (lesson, rating) => new { student_id = lesson.student_id, 
+                                            rating_value = rating.rating_value, 
+                                            review = rating.review, 
+                                            subject_id = lesson.subject_id});
+
+                var result = ratings_relation.Select(item => new RatingViewModel()
+                {
+                    rating_value = item.rating_value,
+                    review = item.review,
+                    student = users.FirstOrDefault(s => s.id == item.student_id).first_name,
+                    subject = new SubjectViewModel() { SubjectName = subjects.FirstOrDefault(s => s.id == item.subject_id).name }
+                });
+
+                return new BaseResponse<IEnumerable<RatingViewModel>>(){
+                    Data = result,
+                    StatusCode = StatusCode.OK,
+                    Description = $"Найдено {result.Count()} отзывов"
+                };
+
+            }catch (Exception ex)
+            {
+                return new BaseResponse<IEnumerable<RatingViewModel>>()
+                {
                     StatusCode = StatusCode.InternalServerError,
                     Description = ex.Message
                 };

@@ -16,5 +16,6 @@ namespace TeachToEach.Domain.ViewModels.Teacher
         public string Login;
         public List<SubjectViewModel> Subjects;
         public int Id;
+        public float? AvgRating;
     }
 }

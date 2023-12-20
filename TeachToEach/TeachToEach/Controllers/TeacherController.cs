@@ -104,5 +104,15 @@ namespace TeachToEach.Controllers
             return RedirectToAction("GetHWtoTeacher");
         }
 
+        public async Task<IActionResult> GetRatings()
+        {
+            var response = await _teacherService.GetRatings(User.Identity.Name);
+            if(response.StatusCode == Domain.Enum.StatusCode.OK)
+            {
+                return View(response.Data);
+            }
+            return View(response.Data);
+        }
+
     }
 }
