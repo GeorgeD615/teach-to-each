@@ -228,3 +228,18 @@ h4#teachers-subjects {
     border: 3px solid #00539f;
     text-align:center;
 }
+
+button#btn-modal{
+    margin-bottom: 20px;
+}
+
+div#btns-choice-subj{
+    padding: 10px;
+}
+
+form#btn-math, form#btn-inf, form#btn-lit,
+form#btn-soc, form#btn-art, form#btn-mus,
+form#btn-phy, form#btn-bio, form#btn-hist,
+form#btn-eng {
+    margin: 10px;
+}
