@@ -119,7 +119,7 @@ _<details><summary><h3>Ratings</h3></summary>_
 </p>
 </details>
 
-![1](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/teach-to-each(DatabaseScheme).png)
+![1](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/teach-to-each(DatabaseScheme).png)
 
 
 ## Общие ограничения целостности
@@ -144,10 +144,17 @@ _<details><summary><h3>Ratings</h3></summary>_
     *  оставлять отзыв на преподавателя(оценку(1-5), отзыв(по желанию))
 # UI / API 
 Неавторизованный пользователь 
-
+![2](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(136).png)
 Учитель 
+![5](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(139).png)
+![6](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(140).png)
+![7](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(141).png)
 
 Ученик
+![3](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(137).png)
+![4](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(138).png)
+![8](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(142).png)
+
 # Технологии разработки
 ASP.NET, EntityFarmework
 ## Язык программирования
