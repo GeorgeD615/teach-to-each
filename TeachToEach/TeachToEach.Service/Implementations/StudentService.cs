@@ -147,7 +147,7 @@ namespace TeachToEach.Service.Implementations
                                                 }).ToList(),
                     Id = t.id,
                     AvgRating = (float)ratingsTeachers.Where(r => r.teacher_id == t.id).Select(r => r.teacher_rating).Average()
-                }).OrderBy(r => r.AvgRating);
+                }).OrderByDescending(r => r.AvgRating == null ? 0 : r.AvgRating);
 
 
                 return new BaseResponse<IEnumerable<TeacherProfileViewModel>>()

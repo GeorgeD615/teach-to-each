@@ -130,7 +130,7 @@ namespace TeachToEach.DAL.Configurations
             {
                 id = 19,
                 teacher_id = 7,
-                subject_id = 4
+                subject_id = 3
             },
             new TeacherSubject()
             {
