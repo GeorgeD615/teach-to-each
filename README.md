@@ -143,17 +143,26 @@ _<details><summary><h3>Ratings</h3></summary>_
     *  просматривать комментарии учителей и статус отправленных решений(Принято/Непринято)
     *  оставлять отзыв на преподавателя(оценку(1-5), отзыв(по желанию))
 # UI / API 
-Неавторизованный пользователь 
+_<details><summary><h3>Неавторизованный пользователь</h3></summary>_
 ![2](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(136).png)
-Учитель 
+![9](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(143).png)
+![13](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(148).png)
+</details>
+
+_<details><summary><h3>Учитель</h3></summary>_
 ![5](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(139).png)
 ![6](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(140).png)
 ![7](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(141).png)
+![11](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(146).png)
+![12](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(147).png)
+</details>
 
-Ученик
+_<details><summary><h3>Ученик</h3></summary>_
 ![3](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(137).png)
 ![4](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(138).png)
 ![8](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(142).png)
+![10](https://github.com/GeorgeD615/teach-to-each/blob/main/TeachToEach/images/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20(144).png)
+</details>
 
 # Технологии разработки
 ASP.NET, EntityFarmework
