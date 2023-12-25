@@ -341,6 +341,17 @@ namespace TeachToEach.Service.Implementations
             {
                 var homework = await _homeworkRepository.Get(homeworkUpdateViewModel.id);
 
+                if(homeworkUpdateViewModel.solution == homework.solution)
+                {
+                    return new BaseResponse<bool>()
+                    {
+                        Data = true,
+                        StatusCode = StatusCode.OK,
+                        Description = "Решение осталось без изменений"
+                    };
+                }
+                    
+
                 homework.solution = homeworkUpdateViewModel.solution;
                 homework.solution_time = DateTime.Now;
                 homework.teacher_comment = null;

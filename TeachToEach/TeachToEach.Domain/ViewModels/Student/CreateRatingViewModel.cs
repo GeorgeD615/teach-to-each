@@ -10,7 +10,7 @@ namespace TeachToEach.Domain.ViewModels.Student
     public class CreateRatingViewModel
     {
         [Required(ErrorMessage = "Поле рейтинг не может быть пустым")]
-        [Range(1,5, ErrorMessage = "Оценка должна входить в диапозон от 1 до 5")]
+        [Range(1,5, ErrorMessage = "Оценка должна входить в диапазон от 1 до 5")]
         public int rating_value { get; set; }
 
         [Required(ErrorMessage = "Поле отзыв не может быть пустым")]

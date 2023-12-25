@@ -20,7 +20,7 @@ namespace TeachToEach.Domain.ViewModels.Account
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Укажите возраст")]
-        [Range(7,120, ErrorMessage = "Указанный возраст выходит за рамки допустимого диапозона")]
+        [Range(8,120, ErrorMessage = "Указанный возраст выходит за рамки допустимого диапазона(8,120)")]
         public int Age { get; set; }
 
         [Required(ErrorMessage = "Укажите почту")]

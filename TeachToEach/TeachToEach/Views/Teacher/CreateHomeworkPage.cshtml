@@ -46,7 +46,7 @@
                             <input asp-for="deadline" type="datetime-local" class="form-control" id="inputDeadline" placeholder="Deadline" value="2023-12-26T18:00">
                             <span asp-validation-for="deadline" class="text-danger" />
                         </div>
-
+                        <div asp-validation-summary="All" class="text-danger"></div>
                     </div>
                     <button id="btn-send-create-hw" class="btn btn-primary btn-lg float-right" type="submit">Отправить</button>
                 </form>
