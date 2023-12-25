@@ -41,6 +41,7 @@
                         <div class="form-group col-md-6">
                             <label for="inputLastName">Решение</label>
                             <input value="@Model.solution" asp-for="solution" type="text" class="form-control" id="inputSolution" placeholder="Решение">
+                            <span asp-validation-for="solution" class="text-danger" />
                         </div>
                     </div>
                     <button id="btn-send-hw" class="btn btn-primary btn-lg float-right" type="submit">Отправить</button>
@@ -64,4 +65,8 @@
 
 <script src="~/js/site.js" asp-append-version="true"></script>
 
+@section scripts{
 
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

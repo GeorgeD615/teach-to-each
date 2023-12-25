@@ -35,13 +35,18 @@
                 <h2 id="lk-s">Отзыв</h2>
 
                 <form method="post" id="form-search-teacher">
-                    <div asp-validation-summary="All" style="font-size:23px; font-family:Impact" class="text-danger text-center"></div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="inputReview">Отзыв</label>
-                            <input asp-for="review" type="text" class="form-control" id="inputSolution" placeholder="Отзыв">
-                            <label for="inputRatingValue">Рейтинг</label>
-                            <input value="5" asp-for="rating_value" type="number" max="5" min="1" class="form-control" id="inputSolution" placeholder="Отзыв">
+                            <div>
+                                <label for="inputReview">Отзыв</label>
+                                <input asp-for="review" type="text" class="form-control" id="inputSolution" placeholder="Отзыв">
+                                <span asp-validation-for="review" class="text-danger" />
+                            </div>
+                            <div>
+                                <label for="inputRatingValue">Рейтинг</label>
+                                <input value="5" asp-for="rating_value" type="number" max="5" min="1" class="form-control" id="inputSolution" placeholder="Отзыв">
+                                <span asp-validation-for="rating_value" class="text-danger" />
+                            </div>
                         </div>
                     </div>
                     <button id="btn-send-hw" class="btn btn-primary btn-lg float-right" type="submit">Отправить</button>
@@ -65,3 +70,7 @@
 
 <script src="~/js/site.js" asp-append-version="true"></script>
 
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

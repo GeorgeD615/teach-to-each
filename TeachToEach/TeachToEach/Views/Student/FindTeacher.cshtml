@@ -37,19 +37,21 @@
             <div id="personal-data-stud" class="col-10">
                 <h2 id="lk-s">Найти преподавателя</h2>
                 <form method="post" id="form-search-teacher">
-                    <div asp-validation-summary="All" style="font-size:23px; font-family:Impact" class="text-danger text-center"></div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputLastName">Фамилия</label>
                             <input asp-for="last_name" type="text" class="form-control" id="inputLastName" placeholder="Фамилия">
+                            <span asp-validation-for="last_name" class="text-danger" />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputFirstName">Имя</label>
                             <input asp-for="first_name" type="text" class="form-control" id="inputFirstName" placeholder="Имя">
+                            <span asp-validation-for="first_name" class="text-danger" />
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputLogin">Логин</label>
                             <input asp-for="login" type="text" class="form-control" id="inputLogin" placeholder="Логин">
+                            <span asp-validation-for="login" class="text-danger" />
                         </div>
                     </div>
                     <div class="form-row">
@@ -68,6 +70,7 @@
                                 <option>История</option>
                                 <option>Английский язык</option>
                             </select>
+                            <span asp-validation-for="subject" class="text-danger" />
                         </div>
                     </div>
                     <button id="btn-find-teacher" class="btn btn-primary btn-lg float-right" type="submit">Найти</button>
@@ -96,3 +99,7 @@
 
 <script src="~/js/site.js" asp-append-version="true"></script>
 
+@section scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
