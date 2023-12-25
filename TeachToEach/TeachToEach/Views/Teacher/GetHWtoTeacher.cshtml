@@ -66,7 +66,16 @@
                                         <td>@item.Solution</td>
                                         <td>@item.SolutionTime</td>
                                         <td>@item.TeacherComment</td>
-                                        <td>@item.IsCompleted</td>
+                                        <td>
+                                            @if (@item.IsCompleted == true)
+                                            {
+                                                <p>✔</p>
+                                            }
+                                            else
+                                            {
+                                                <p>✖</p>
+                                            }                                            
+                                        </td>
                                         
                                         <td>
                                             <form method="post" asp-controller="Teacher" asp-action="UpdateHomeworkFirstStep"
@@ -97,8 +106,8 @@
             <h2>Связанные темы</h2>
 
             <ul>
-                <li><a href="#">Как найти хорошего репетитора?</a></li>
-                <li><a href="#">Как стать самостоятельным?</a></li>
+                <li><a href="https://journal.tinkoff.ru/find-repetitor/">Как найти хорошего репетитора?</a></li>
+                <li><a href="https://gb.ru/blog/kak-stat-samostostoyatelnym/">Как стать самостоятельным?</a></li>
             </ul>
         </aside>
     </main>
