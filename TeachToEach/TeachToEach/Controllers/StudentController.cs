@@ -80,13 +80,13 @@ namespace TeachToEach.Controllers
             return RedirectToAction("GetTeachers");
         }
 
-        public async Task<IActionResult> UpdateHomeworkFirstStep(int id, string solution, string description, string teacherComment)
+        public async Task<IActionResult> UpdateHomeworkFirstStep(int id, string? solution, string? description, string? teacherComment)
         {
             return RedirectToAction("UpdateHomeworkPage", new { id = id, solution = solution, description = description, teacherComment = teacherComment });
         }
 
         [HttpGet]
-        public async Task<IActionResult> UpdateHomeworkPage(int id, string solution, string description, string teacherComment)
+        public async Task<IActionResult> UpdateHomeworkPage(int id, string? solution, string? description, string? teacherComment)
         {
             HomeworkUpdateViewModel updateViewModel = new HomeworkUpdateViewModel()
             {

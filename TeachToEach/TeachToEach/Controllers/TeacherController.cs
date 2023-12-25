@@ -76,13 +76,13 @@ namespace TeachToEach.Controllers
             return View(homeworkCreateViewModel);
         }
 
-        public async Task<IActionResult> UpdateHomeworkFirstStep(int id, string description, DateTime? deadline, string teacherComment, bool isCompleted, string solution)
+        public async Task<IActionResult> UpdateHomeworkFirstStep(int id, string? description, DateTime? deadline, string? teacherComment, bool isCompleted, string? solution)
         {
             return RedirectToAction("UpdateHomeworkPage", new { id = id, description = description, deadline = deadline, teacherComment = teacherComment, isCompleted = isCompleted, solution = solution});
         }
 
         [HttpGet]
-        public async Task<IActionResult> UpdateHomeworkPage(int id, string description, DateTime? deadline, string teacherComment, bool isCompleted, string solution)
+        public async Task<IActionResult> UpdateHomeworkPage(int id, string? description, DateTime? deadline, string? teacherComment, bool isCompleted, string? solution)
         {
             HomeworkUpdateViewModel updateViewModel = new HomeworkUpdateViewModel()
             {
