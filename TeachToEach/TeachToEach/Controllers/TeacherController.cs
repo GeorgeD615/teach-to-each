@@ -65,12 +65,15 @@ namespace TeachToEach.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateHomeworkPage(HomeworkCreateViewModel homeworkCreateViewModel)
         {
-            var response = await _teacherService.CreateHomework(homeworkCreateViewModel);
-            if(response.StatusCode == Domain.Enum.StatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("GetHWtoTeacher");
+                var response = await _teacherService.CreateHomework(homeworkCreateViewModel);
+                if(response.StatusCode == Domain.Enum.StatusCode.OK)
+                {
+                    return RedirectToAction("GetHWtoTeacher");
+                }
             }
-            return RedirectToAction("GetHWtoTeacher");
+            return View(homeworkCreateViewModel);
         }
 
         public async Task<IActionResult> UpdateHomeworkFirstStep(int id, string description, DateTime? deadline, string teacherComment, bool isCompleted, string solution)
@@ -96,12 +99,15 @@ namespace TeachToEach.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateHomeworkPage(HomeworkUpdateViewModel updateViewModel)
         {
-            var response = await _teacherService.UpdateHomework(updateViewModel);
-            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("GetHWtoTeacher");
+                var response = await _teacherService.UpdateHomework(updateViewModel);
+                if (response.StatusCode == Domain.Enum.StatusCode.OK)
+                {
+                    return RedirectToAction("GetHWtoTeacher");
+                }
             }
-            return RedirectToAction("GetHWtoTeacher");
+            return View(updateViewModel);
         }
 
         public async Task<IActionResult> GetRatings()

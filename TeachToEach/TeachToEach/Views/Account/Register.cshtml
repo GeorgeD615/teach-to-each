@@ -10,7 +10,7 @@
         <div class="col-4"></div>
         <div id="form-register" class="col-4">
             <form asp-controller="Account" asp-action="Register">
-
+                <div asp-validation-summary="All" style="font-size:23px; font-family:Impact" class="text-danger text-center"></div>
                 <input asp-for="FirstName" class="form-control textbox-dg font-weight-bold text-center" placeholder="Имя" type="text">
                 <input asp-for="LastName" class="form-control textbox-dg font-weight-bold text-center" placeholder="Фамилия" type="text">
                 <input asp-for="Email" class="form-control textbox-dg font-weight-bold text-center" placeholder="Почта" type="text">

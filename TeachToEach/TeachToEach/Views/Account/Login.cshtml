@@ -13,6 +13,7 @@
             <div class="col-4"></div>
             <div id="login-form" class="col-4">
                 <form method="post" asp-controller="Account" asp-action="Login">
+                    <div asp-validation-summary="All" style="font-size:23px; font-family:Impact" class="text-danger text-center"></div>
                     <input asp-for="Login" placeholder="Логин" class="form-control textbox-dg font-weight-bold text-center" type="text">
                     <input autocomplete="new-password" asp-for="Password" placeholder="Пароль" class="form-control textbox-dg font-weight-bold text-center" type="password">
                     <button id="btn-login-form" class="btn btn-primary btn-lg float-right" type="submit">Войти</button>

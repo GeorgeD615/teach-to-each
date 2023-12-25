@@ -56,13 +56,15 @@ namespace TeachToEach.Controllers
         [HttpPost]
         public async Task<IActionResult> FindTeacher(TeacherFindViewModel teacherFindViewModel)
         {
-            
-            var response = await _studentService.FindTeacher(teacherFindViewModel);
-            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return View("ShowFoundTeachers", response.Data);
-            }
-            return RedirectToAction("Error");
+                var response = await _studentService.FindTeacher(teacherFindViewModel);
+                if (response.StatusCode == Domain.Enum.StatusCode.OK)
+                {
+                    return View("ShowFoundTeachers", response.Data);
+                }
+            } 
+            return View(teacherFindViewModel);
         }
 
 
@@ -99,12 +101,15 @@ namespace TeachToEach.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateHomeworkPage(HomeworkUpdateViewModel updateViewModel)
         {
-            var response = await _studentService.UpdateHomework(updateViewModel);
-            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("GetHWtoStudent");
+                var response = await _studentService.UpdateHomework(updateViewModel);
+                if (response.StatusCode == Domain.Enum.StatusCode.OK)
+                {
+                    return RedirectToAction("GetHWtoStudent");
+                }
             }
-            return RedirectToAction("GetHWtoStudent");
+            return View(updateViewModel);
         }
 
         public async Task<IActionResult> CreateRatingFirstStep(int relation_id)
@@ -125,12 +130,15 @@ namespace TeachToEach.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRating(CreateRatingViewModel createRatingViewModel)
         {
-            var response = await _studentService.CreateRating(createRatingViewModel);
-            if (response.StatusCode == Domain.Enum.StatusCode.OK)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("GetTeachers");
+                var response = await _studentService.CreateRating(createRatingViewModel);
+                if (response.StatusCode == Domain.Enum.StatusCode.OK)
+                {
+                    return RedirectToAction("GetTeachers");
+                }
             }
-            return RedirectToAction("GetTeachers");
+            return View(createRatingViewModel);
         }
     }
 }
