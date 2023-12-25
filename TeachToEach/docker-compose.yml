@@ -1,0 +1,38 @@
+version: '3'
+services:
+  web:
+    container_name: 'teachtoeach'
+    image: 'teachtoeach'
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
+    depends_on:
+      - 'postgres'
+    networks:
+      - teachtoeach  
+
+  postgres:
+    image: 'postgres:10.4'
+    restart: always    
+    ports:
+      - '5432:5432'
+    container_name: teachtoeach-postgresql
+    environment:
+      - POSTGRES_PASSWORD=283564
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=teach_to_each
+    expose: 
+      - "5432"
+    volumes:
+      - 'teachtoeach-postgresql-volume:/var/lib/postgresql/data'
+    networks:
+      - teachtoeach
+
+volumes:
+  teachtoeach-postgresql-volume:
+
+networks:
+  teachtoeach:
+    driver: bridge
