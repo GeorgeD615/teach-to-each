@@ -64,11 +64,10 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="ModalLabel">Заголовок модального окна</h5>
+                                    <h5 class="modal-title" id="ModalLabel">Выберете новый предмет:</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                                 </div>
                                 <div id="btns-choice-subj" class="modal-body">
-                                <h4> Выберете новый предмет: </h4>
                                 @if (!Model.Subjects.Select(s => s.SubjectName).Contains("Математика"))
                                 {
                                     <form id="btn-math" method="post" asp-controller="Teacher" asp-action="AddSubject"
