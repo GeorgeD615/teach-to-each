@@ -170,3 +170,14 @@ ASP.NET, EntityFarmework
 С#, HTML, CSS, JavaScript
 ## СУБД
 PostgreSQL
+
+## Инструкция по запуску проекта
+1. Склонировать репозиторий
+2. Находясь в папке проекта, выполнить в консоли команды
+```
+dotnet publish -c Release -o published
+```
+```
+docker-compose up --build
+```
+3. Обратиться в браузере к localhost:80
